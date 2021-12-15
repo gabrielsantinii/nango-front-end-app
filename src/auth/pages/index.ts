@@ -1,0 +1,1 @@
+export { SignupPageLayout } from './sign-up'
