@@ -100,14 +100,20 @@ h1, h2 {
   color: var(--primary-gray);
 }
 
+h1 {
+  
+  font-size: 42px;
+  line-height: 42px;
+
+  @media (min-width: 1150px) {
+    font-size: 58px;
+    line-height: 58px;
+  }
+}
+
 h2 {
   font-size: 36px;
   line-height: 36px;
-}
-
-h1 {
-  font-size: 58px;
-  line-height: 58px;
 }
 
 p {

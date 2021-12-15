@@ -4,7 +4,8 @@ export const SignupContainer = styled.div`
     min-width: 100%;
     min-height: 100vh;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
+    align-items: center;
 
     @media (min-width: 1150px) {
         flex-direction: row;
@@ -13,20 +14,21 @@ export const SignupContainer = styled.div`
 
 export const ContentContainer = styled.main`
     background: var(--primary-white);
-    min-width: 100%;
+    max-width: 90%;
     min-height: 100vh;
-    padding-bottom: 79px;
-    padding-top: 79px;
+    padding-bottom: 20px;
+    padding-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
     @media (min-width: 1150px) {
+        padding-bottom: 79px;
+        padding-top: 79px;
+
         min-width: 50%;
         max-width: 50%;
-        min-height: 100%;
-        max-height: 100%;
     }
 `;
 
@@ -97,14 +99,19 @@ export const IllustrationContainer = styled.aside`
     @media (min-width: 1150px) {
         min-width: 50%;
         max-width: 50%;
-        min-height: 100%;
     }
 `;
 
 export const IllustrationTitle = styled.h1`
-    max-width: 460px;
+    max-width: 90%;
     color: var(--secondary-gray);
+    @media (min-width: 1150px) {
+        max-width: 460px;
+    }
 `;
 export const IllustrationImage = styled.img`
-    max-width: 560px;
+    max-width: 90%;
+    @media (min-width: 1150px) {
+        max-width: 560px;
+    }
 `;
