@@ -1,1 +1,3 @@
-export { SignupPageLayout } from "./layout/sign-up.page.layout";
+import { SignupPageLayout } from "./layout/sign-up.page.layout";
+
+export { SignupPageLayout };

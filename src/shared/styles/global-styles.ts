@@ -65,6 +65,7 @@ body, #root {
     --secondary-gray: rgba(130, 130, 130, 1);
     --terceary-gray: rgba(160, 160, 160, 1);
     --quaternary-gray: rgba(189, 189, 189, 1);
+    --quinquennial-gray: rgba(208, 208, 208, 1);
 
     --primary-white: rgba(255, 255, 255, 1);
     --secondary-white: rgba(247, 247, 247, 1);
@@ -93,6 +94,7 @@ input {
 a, label, p, button, input {
   font-weight: 500;
   font-size: var(--default-font);
+  line-height: var(--default-font);
 }
 
 h1, h2 {

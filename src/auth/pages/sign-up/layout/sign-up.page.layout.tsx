@@ -1,59 +1,56 @@
-import {
-    SignupContainer,
-    ContentContainer,
-    ContentWrapper,
-    Logo,
-    ContentSection,
-    SectionTitle,
-    SectionDescription,
-    LoginForm,
-    ForgotPasswordLink,
-    Footer,
-    FooterItem,
-    IllustrationContainer,
-    IllustrationTitle,
-    IllustrationImage,
-} from "./styles";
-import logo from "../../../../shared/assets/images/logo.png";
-import illustrationImage from "../assets/fortalecendo-o-ensino.png";
+import { AuthPageContainer } from "../../../components/auth-page-container";
 import { PrimaryButton } from "../../../../shared/components/buttons";
 import { TextInput } from "../../../../shared/components/inputs";
+import { Stepper } from "../components";
 
+import { useStep } from "../../../../shared/hooks/use-step/use.step";
+
+import { SignupForm } from "./styles";
+import { ContentSection, SectionTitle, SectionDescription } from "../../../shared/styles";
+
+const numberOfSteps = 3;
 export function SignupPageLayout(): JSX.Element {
+    const { step, nextStep } = useStep({ numberOfSteps });
     return (
-        <SignupContainer>
-            <ContentContainer>
-                <ContentWrapper>
-                    <Logo src={logo} alt="Nango" />
-                    <ContentSection>
-                        <SectionTitle>Instituição</SectionTitle>
-                        <SectionDescription>
-                            Sua instituição não faz parte? Não perca tempo, registre-se agora!
-                        </SectionDescription>
-                        <PrimaryButton>Registrar</PrimaryButton>
-                    </ContentSection>
+        <AuthPageContainer>
+            <Stepper currentStep={step} numberOfSteps={numberOfSteps} />
+            <ContentSection>
+                <SectionTitle>Identificação</SectionTitle>
+                <SectionDescription>
+                    Insira o nome institucional, escolha a categoria e preencha o site corretamente.
+                </SectionDescription>
+                <SignupForm>
+                    {step === 0 && (
+                        <>
+                            <TextInput label="Nome da instituição" name="institutionName" register={() => {}} />
+                            <TextInput label="Categoria" name="category" register={() => {}} />
+                            <TextInput label="Site" name="website" register={() => {}} />
+                        </>
+                    )}
+                    {step === 1 && (
+                        <>
+                            <TextInput label="CEP" name="postalCode" register={() => {}} />
+                            <TextInput label="Rua" name="street" register={() => {}} />
+                            <TextInput label="Bairro" name="neighborhood" register={() => {}} />
+                            <TextInput label="Cidade" name="city" register={() => {}} />
+                            <TextInput label="state" name="state" register={() => {}} />
+                        </>
+                    )}
+                    {step === 2 && (
+                        <>
+                            <TextInput label="Número de funcionários" name="numberOfEmployees" register={() => {}} />
+                            <TextInput label="Número de alunos" name="numberOfStudents" register={() => {}} />
+                            <TextInput label="Nome para contato" name="contactName" register={() => {}} />
+                            <TextInput label="E-mail para contato" name="contactEmail" register={() => {}} />
+                            <TextInput label="Telefone para contato" name="contactPhone" register={() => {}} />
+                        </>
+                    )}
 
-                    <ContentSection>
-                        <SectionTitle>Logar</SectionTitle>
-                        <SectionDescription>
-                            Sua instituição já é cadastrada? acesse pelo login abaixo.
-                        </SectionDescription>
-                        <LoginForm>
-                            <TextInput label="E-mail" name="email" register={() => {}} />
-                            <TextInput label="Senha" name="pass" type="password" register={() => {}} />
-                            <ForgotPasswordLink>Esqueceu sua senha?</ForgotPasswordLink>
-                            <PrimaryButton className="login-button">Logar</PrimaryButton>
-                        </LoginForm>
-                    </ContentSection>
-                    <Footer>
-                        <FooterItem>2021 NANGO - Todos os direitos são reservados.</FooterItem>
-                    </Footer>
-                </ContentWrapper>
-            </ContentContainer>
-            <IllustrationContainer>
-                <IllustrationTitle>Fortalecendo o ensino.</IllustrationTitle>
-                <IllustrationImage src={illustrationImage} alt="Fortalecendo o ensino" />
-            </IllustrationContainer>
-        </SignupContainer>
+                    <PrimaryButton className="next-button" onClick={nextStep} type="button">
+                        {step === numberOfSteps - 1 ? "Registrar" : "Seguir"}
+                    </PrimaryButton>
+                </SignupForm>
+            </ContentSection>
+        </AuthPageContainer>
     );
 }

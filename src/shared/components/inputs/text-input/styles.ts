@@ -4,7 +4,7 @@ export const InputContainer = styled.div`
     display: flex;
     flex-direction: column;
     > label {
-        margin-bottom: 2px;
+        margin-bottom: 8px;
     }
     > input {
         min-height: 55px;

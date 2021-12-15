@@ -1,0 +1,1 @@
+export type { AuthPageContainerProps } from './auth-page-container-props.interface'
