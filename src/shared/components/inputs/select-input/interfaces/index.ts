@@ -1,0 +1,1 @@
+export type { SelectInputOption } from './option.interface'

@@ -7,6 +7,8 @@ import { useStep } from "../../../../shared/hooks/use-step/use.step";
 
 import { SignupForm } from "./styles";
 import { ContentSection, SectionTitle, SectionDescription } from "../../../shared/styles";
+import { SelectInput } from "../../../../shared/components/inputs/select-input/layout";
+import { inputOptions } from "../config";
 
 const numberOfSteps = 3;
 export function SignupPageLayout(): JSX.Element {
@@ -23,7 +25,13 @@ export function SignupPageLayout(): JSX.Element {
                     {step === 0 && (
                         <>
                             <TextInput label="Nome da instituição" name="institutionName" register={() => {}} />
-                            <TextInput label="Categoria" name="category" register={() => {}} />
+                            <SelectInput
+                                label="Categorias"
+                                name="categories"
+                                register={() => {}}
+                                isMulti
+                                options={inputOptions.categories}
+                            />
                             <TextInput label="Site" name="website" register={() => {}} />
                         </>
                     )}

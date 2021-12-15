@@ -1,0 +1,1 @@
+export type {  SelectInputProps} from './select-input-props.type'
