@@ -11,8 +11,13 @@ import {
     Footer,
     FooterItem,
     IllustrationContainer,
+    IllustrationTitle,
+    IllustrationImage,
 } from "./styles";
 import logo from "../../../../shared/assets/images/logo.png";
+import illustrationImage from "../assets/fortalecendo-o-ensino.png";
+import { PrimaryButton } from "../../../../shared/components/buttons";
+import { TextInput } from "../../../../shared/components/inputs";
 
 export function SignupPageLayout(): JSX.Element {
     return (
@@ -25,8 +30,7 @@ export function SignupPageLayout(): JSX.Element {
                         <SectionDescription>
                             Sua instituição não faz parte? Não perca tempo, registre-se agora!
                         </SectionDescription>
-                        {/* <PrimaryButton>Registrar</PrimaryButton> */}
-                        <button type="button">Registrar</button>
+                        <PrimaryButton>Registrar</PrimaryButton>
                     </ContentSection>
 
                     <ContentSection>
@@ -35,21 +39,21 @@ export function SignupPageLayout(): JSX.Element {
                             Sua instituição já é cadastrada? acesse pelo login abaixo.
                         </SectionDescription>
                         <LoginForm>
-                            {/* <PrimaryInput label="E-mail" name="email" />
-                        <PrimaryInput label="Senha" name="pass" /> */}
-                            <input type="text" />
-                            <input type="text" />
+                            <TextInput label="E-mail" name="email" register={() => {}} />
+                            <TextInput label="Senha" name="pass" type="password" register={() => {}} />
                             <ForgotPasswordLink>Esqueceu sua senha?</ForgotPasswordLink>
-                            {/* <PrimaryButton>Logar</PrimaryButton> */}
-                            <button type="button">Logar</button>
+                            <PrimaryButton className="login-button">Logar</PrimaryButton>
                         </LoginForm>
                     </ContentSection>
                     <Footer>
-                        <FooterItem>2021 NANGO Todos os direitos são reservados.</FooterItem>
+                        <FooterItem>2021 NANGO - Todos os direitos são reservados.</FooterItem>
                     </Footer>
                 </ContentWrapper>
             </ContentContainer>
-            <IllustrationContainer></IllustrationContainer>
+            <IllustrationContainer>
+                <IllustrationTitle>Fortalecendo o ensino.</IllustrationTitle>
+                <IllustrationImage src={illustrationImage} alt="Fortalecendo o ensino" />
+            </IllustrationContainer>
         </SignupContainer>
     );
 }

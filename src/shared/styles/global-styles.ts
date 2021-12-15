@@ -15,7 +15,7 @@ export const GlobalStyles = createGlobalStyle`
 @font-face {
   font-family: "Metropolis";
   src: url("../assets/fonts/Metropolis-Regular.otf");
-  font-weight: 400;
+  font-weight: 500;
 }
 @font-face {
   font-family: "Metropolis";
@@ -69,24 +69,60 @@ body, #root {
     --primary-white: rgba(255, 255, 255, 1);
     --secondary-white: rgba(247, 247, 247, 1);
 
+    --default-font: 14.71px;
+
 }
 
 button {
     outline: 0;
     border: none;
+    display: block;
 }
 
-h1 {
-  font-size: 36px;
-  line-height: 36px;
+input {
+  outline: 0;
+  border: none;
+  padding-left: 23px;
+  color: var(--primary-gray);
+  font-size: var(--default-font);
+  &::placeholder {
+    color: var(--terceary-gray);
+  }
+}
+
+a, label, p, button, input {
+  font-weight: 500;
+  font-size: var(--default-font);
+}
+
+h1, h2 {
   font-weight: 700;
   color: var(--primary-gray);
 }
 
+h2 {
+  font-size: 36px;
+  line-height: 36px;
+}
+
+h1 {
+  font-size: 58px;
+  line-height: 58px;
+}
+
 p {
-  font-size: 14px;
-  line-height: 14px;
-  font-weight: 400;
+  font-size: var(--default-font);
+  line-height: var(--default-font);
   color: var(--primary-gray);
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  transition: 180ms all;
+  &:hover {
+    transform: scale(1.06);
+     filter: brightness(0.2);
+  }
 }
 `;
