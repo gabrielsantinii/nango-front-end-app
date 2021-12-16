@@ -41,6 +41,7 @@ export const EditIcon = styled(Pencil)`
     height: 20px;
     width: 20px;
     fill: var(--primary-white);
+    cursor: pointer;
 `;
 export const Content = styled.div`
     display: flex;
