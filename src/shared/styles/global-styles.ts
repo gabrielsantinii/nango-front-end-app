@@ -91,7 +91,7 @@ input {
   }
 }
 
-a, label, p, button, input {
+a, label, p, button, input, span {
   font-weight: 500;
   font-size: var(--default-font);
   line-height: var(--default-font);
