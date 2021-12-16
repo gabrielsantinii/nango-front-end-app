@@ -25,8 +25,13 @@ export const ProgressPercentage = styled.h3`
 export const PeriodProgressDetails = styled.div`
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 `;
 export const ProgressDescription = styled.p`
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
     font-size: 12.86px;
     color: var(--primary-blue);
     font-weight: 300;
