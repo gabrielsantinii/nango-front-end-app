@@ -8,7 +8,7 @@ export const Header = styled.div`
 
     > .search-input-container {
         > input {
-            font-size: 10px;
+            font-size: 12px;
         }
     }
 `;
@@ -16,4 +16,9 @@ export const Main = styled.div``;
 export const StudentsContainer = styled.div`
     display: flex;
     flex-direction: column;
+    margin-top: ${measureEquivalence.height(26)};
+
+    > .student-card:nth-child(odd) {
+        background-color: var(--terceary-white);
+    }
 `;

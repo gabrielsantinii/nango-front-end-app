@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { measureEquivalence } from "../../../../../../../../shared/styles";
 
 export const StudentCardContainer = styled.div`
     display: flex;
@@ -7,11 +8,11 @@ export const StudentCardContainer = styled.div`
     width: 100%;
     height: 56px;
 
-    padding-top: 11px;
-    padding-bottom: 11px;
+    padding-top: ${measureEquivalence.height(11)};
+    padding-bottom: ${measureEquivalence.height(11)};
 
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: ${measureEquivalence.width(30)};
+    padding-right: ${measureEquivalence.width(30)};
 
     background: var(--secondary-background);
 
@@ -22,8 +23,9 @@ export const StudentCardContainer = styled.div`
 
     cursor: pointer;
     transition: 180ms all;
+    
     &:hover {
-        filter: brightness(0.99);
+        filter: brightness(0.95);
     }
 `;
 
@@ -31,25 +33,17 @@ export const StudentDetails = styled.div`
     display: flex;
     flex-direction: column;
 
-    margin-left: 10px;
+    margin-left: ${measureEquivalence.width(10)};
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    > h4,
-    h3 {
-        text-overflow: ellipsis;
-    }
-
-    > h3 {
-        color: var(--primary-text);
-    }
 `;
 
 export const StudentName = styled.h4`
-    font-size: 10px;
-    line-height: 10px;
+    font-size: 12px;
+    line-height: 15px;
 `;
 export const StudentEmail = styled.span`
-    font-size: 10px;
-    line-height: 10px;
+    font-size: 12px;
+    line-height: 15px;
 `;

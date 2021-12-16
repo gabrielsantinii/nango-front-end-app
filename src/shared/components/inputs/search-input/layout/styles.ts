@@ -12,9 +12,9 @@ export const SearchInputContainer = styled.div`
         width: 100%;
         border-radius: 10px;
 
-        padding-left: 60px;
+        padding-left: 50px;
         padding-right: 15px;
-        
+
         min-width: none;
         overflow: hidden;
     }
