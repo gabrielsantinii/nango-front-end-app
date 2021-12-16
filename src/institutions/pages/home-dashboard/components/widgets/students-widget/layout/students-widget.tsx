@@ -1,7 +1,7 @@
 import faker from "faker";
 
 import { SearchInput } from "../../../../../../../shared/components/inputs";
-import { StudentCard } from "../../components";
+import { StudentCard } from "../components";
 
 import { Header, Main, StudentsContainer, StudentsWidgetContainer } from "./styles";
 

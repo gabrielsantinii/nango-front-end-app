@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { measureEquivalence } from "../../../../../../../../shared/styles";
+import { measureEquivalence } from "../../../../../../../../../shared/styles";
 
 export const StudentCardContainer = styled.div`
     display: flex;
@@ -14,7 +14,7 @@ export const StudentCardContainer = styled.div`
     padding-left: ${measureEquivalence.width(30)};
     padding-right: ${measureEquivalence.width(30)};
 
-    background: var(--secondary-background);
+    background: var(--secondary-white);
 
     > .avatar-container {
         width: 34px;

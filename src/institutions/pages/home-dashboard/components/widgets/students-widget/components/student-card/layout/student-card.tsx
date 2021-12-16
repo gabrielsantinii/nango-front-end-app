@@ -1,4 +1,4 @@
-import { Avatar } from "../../../../../../../../shared/components";
+import { Avatar } from "../../../../../../../../../shared/components";
 import { StudentCardProps } from "../interfaces";
 import { StudentCardContainer, StudentDetails, StudentName, StudentEmail } from "./styles";
 

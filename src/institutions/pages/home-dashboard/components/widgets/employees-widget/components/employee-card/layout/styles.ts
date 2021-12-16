@@ -1,7 +1,7 @@
 import { HtmlHTMLAttributes } from "react";
 import styled from "styled-components";
 import { Pencil } from "@styled-icons/boxicons-regular/";
-import { measureEquivalence } from "../../../../../../shared/styles";
+import { measureEquivalence } from "../../../../../../../../../shared/styles";
 
 type EmployeeCardContainerProps = HtmlHTMLAttributes<HTMLDivElement> & {
     backgroundImage: string;

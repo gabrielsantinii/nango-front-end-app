@@ -1,0 +1,1 @@
+export { ClassesWidget } from './layout'

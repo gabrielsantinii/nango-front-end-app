@@ -1,6 +1,7 @@
 import React from "react";
 import faker from "faker";
 import { Calendar, PageContainer } from "../../../../shared/components";
+import { ClassesWidget, StudentsWidget, EmployeesWidget } from "../components/widgets";
 
 import {
     Header,
@@ -18,9 +19,8 @@ import {
     ProgressContent,
     MessagesContent,
 } from "./styles";
-import { ClassCard, EmployeeCard } from "../components";
+
 import { AddCircleButton } from "../../../../shared/components/buttons";
-import { StudentsWidget } from "../components/widgets";
 
 export function InstitutionsHomePageLayout(): JSX.Element {
     return (
@@ -37,15 +37,7 @@ export function InstitutionsHomePageLayout(): JSX.Element {
                             <AddCircleButton />
                         </SectionHeader>
                         <ClassesContent>
-                            {Array.from({ length: 8 }).map((_, i) => (
-                                <ClassCard
-                                    educators={["Gabriel Santini"]}
-                                    name="Turma de Informática"
-                                    studentsCount={10}
-                                    trailsCount={8}
-                                    key={i}
-                                />
-                            ))}
+                            <ClassesWidget />
                         </ClassesContent>
                     </Section>
                     <Section className="section">
@@ -54,16 +46,7 @@ export function InstitutionsHomePageLayout(): JSX.Element {
                             <AddCircleButton />
                         </SectionHeader>
                         <EmployeesContent>
-                            {Array.from({ length: 8 }).map((_, i) => (
-                                <EmployeeCard
-                                    active={true}
-                                    firstName={faker.name.firstName()}
-                                    lastName={faker.name.lastName()}
-                                    photoUrl={faker.image.cats()}
-                                    role="Educador"
-                                    key={i}
-                                />
-                            ))}
+                            <EmployeesWidget />
                         </EmployeesContent>
                     </Section>
                 </Column>

@@ -1,2 +1,1 @@
-export { ClassCard } from "./class-card";
-export { EmployeeCard } from "./employee-card";
+export { ClassesWidget, EmployeesWidget, StudentsWidget } from "./widgets";

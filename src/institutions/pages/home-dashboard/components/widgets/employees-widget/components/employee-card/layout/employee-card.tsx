@@ -1,4 +1,4 @@
-import { Switcher } from "../../../../../../shared/components";
+import { Switcher } from "../../../../../../../../../shared/components";
 import { EmployeeCardProps } from "../interfaces";
 import { Content, EditIcon, EmployeeCardContainer, FirstName, Header, LastName, Role } from "./styles";
 

@@ -1,0 +1,1 @@
+export { EmployeesWidget } from './layout'

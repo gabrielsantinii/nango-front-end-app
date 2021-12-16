@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { measureEquivalence } from "../../../../../../shared/styles";
+import { measureEquivalence } from "../../../../../../../../../shared/styles";
 
 export const CardContainer = styled.div`
     display: flex;

@@ -59,18 +59,7 @@ export const ClassesContent = styled.section`
 
     min-width: ${measureEquivalence.width(578)};
     max-width: ${measureEquivalence.width(578)};
-
-    /* border: 1px solid var(--terceary-gray); */
-
-    > .class-card + .class-card {
-        margin-top: 8px;
-    }
-
-    overflow-x: scroll;
-
-    > .class-card:nth-child(odd) {
-        background: var(--terceary-white);
-    }
+    display: flex;
 `;
 
 export const EmployeesContent = styled.section`
@@ -79,18 +68,7 @@ export const EmployeesContent = styled.section`
 
     min-width: ${measureEquivalence.width(578)};
     max-width: ${measureEquivalence.width(578)};
-
     display: flex;
-    align-items: center;
-    overflow-x: scroll;
-
-    ::-webkit-scrollbar {
-        display: none;
-    }
-
-    > .employee-card + .employee-card {
-        margin-left: ${measureEquivalence.width(15)};
-    }
 `;
 
 export const CalendarContent = styled.section`
@@ -117,20 +95,7 @@ export const StudentsContent = styled.section`
 
     min-width: ${measureEquivalence.width(258)};
     max-width: ${measureEquivalence.width(258)};
-
-    padding-top: ${measureEquivalence.height(22)};
-
     display: flex;
-    flex-direction: column;
-
-    background-color: var(--secondary-white);
-    border-radius: 10px;
-
-    overflow-y: scroll;
-
-    ::-webkit-scrollbar {
-        display: none;
-    }
 `;
 
 export const ProgressContent = styled.section`
@@ -154,10 +119,3 @@ export const MessagesContent = styled.section`
     background-color: var(--secondary-white);
     border-radius: 10px;
 `;
-
-// export const ClassesSectionContent = styled.div`
-//     display: flex;
-//     flex-direction: column;
-//     align-self: stretch;
-//     flex: 1;
-// `;
