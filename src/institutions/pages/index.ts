@@ -1,0 +1,1 @@
+export { InstitutionsHomePageLayout } from './home-dashboard'

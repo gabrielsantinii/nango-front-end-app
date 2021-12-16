@@ -1,0 +1,1 @@
+export { InstitutionsHomePageLayout }  from './institutions.home.page.layout'
