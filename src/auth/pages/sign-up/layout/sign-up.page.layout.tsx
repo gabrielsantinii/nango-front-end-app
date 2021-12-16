@@ -1,14 +1,13 @@
 import { AuthPageContainer } from "../../../components/auth-page-container";
+import { TextInput, SelectInput } from "../../../../shared/components/inputs";
 import { PrimaryButton } from "../../../../shared/components/buttons";
-import { TextInput } from "../../../../shared/components/inputs";
 import { Stepper } from "../components";
 
 import { useStep } from "../../../../shared/hooks/use-step/use.step";
+import { inputOptions, textByStep } from "../config";
 
 import { SignupForm } from "./styles";
 import { ContentSection, SectionTitle, SectionDescription } from "../../../shared/styles";
-import { SelectInput } from "../../../../shared/components/inputs/select-input/layout";
-import { inputOptions } from "../config";
 
 const numberOfSteps = 3;
 export function SignupPageLayout(): JSX.Element {
@@ -17,10 +16,8 @@ export function SignupPageLayout(): JSX.Element {
         <AuthPageContainer>
             <Stepper currentStep={step} numberOfSteps={numberOfSteps} />
             <ContentSection>
-                <SectionTitle>Identificação</SectionTitle>
-                <SectionDescription>
-                    Insira o nome institucional, escolha a categoria e preencha o site corretamente.
-                </SectionDescription>
+                <SectionTitle>{textByStep[step].title}</SectionTitle>
+                <SectionDescription>{textByStep[step].description}</SectionDescription>
                 <SignupForm>
                     {step === 0 && (
                         <>
@@ -46,10 +43,25 @@ export function SignupPageLayout(): JSX.Element {
                     )}
                     {step === 2 && (
                         <>
-                            <TextInput label="Número de funcionários" name="numberOfEmployees" register={() => {}} />
-                            <TextInput label="Número de alunos" name="numberOfStudents" register={() => {}} />
+                            <SelectInput
+                                label="Número de funcionários"
+                                name="numberOfEmployees"
+                                register={() => {}}
+                                options={inputOptions.numberOfEmployees}
+                            />
+                            <SelectInput
+                                label="Número de alunos"
+                                name="numberOfStudents"
+                                register={() => {}}
+                                options={inputOptions.numberOfStudents}
+                            />
                             <TextInput label="Nome para contato" name="contactName" register={() => {}} />
-                            <TextInput label="E-mail para contato" name="contactEmail" register={() => {}} />
+                            <TextInput
+                                label="E-mail para contato"
+                                name="contactEmail"
+                                register={() => {}}
+                                helpMessage="Este e-mail será registrado como administrador da instituição."
+                            />
                             <TextInput label="Telefone para contato" name="contactPhone" register={() => {}} />
                         </>
                     )}

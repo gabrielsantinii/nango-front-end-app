@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
 export const SignupContainer = styled.div`
-    min-width: 100%;
+    width: 100%;
     min-height: 100vh;
     display: flex;
+
     flex-direction: column;
     align-items: center;
 
@@ -24,9 +25,6 @@ export const ContentContainer = styled.main`
     justify-content: center;
 
     @media (min-width: 1150px) {
-        padding-bottom: 79px;
-        padding-top: 79px;
-
         min-width: 50%;
         max-width: 50%;
     }
@@ -36,6 +34,8 @@ export const ContentWrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    max-width: 332px;
 `;
 
 export const Logo = styled.img`
@@ -55,14 +55,17 @@ export const FooterItem = styled.span`
 export const IllustrationContainer = styled.aside`
     background: var(--secondary-white);
     min-width: 100%;
-    max-width: 100%;
+    flex: 1;
+    align-self: stretch;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding-top: 20px;
 
     @media (min-width: 1150px) {
+        padding-top: 0;
         min-width: 50%;
         max-width: 50%;
     }
