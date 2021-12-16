@@ -1,6 +1,6 @@
 import React from "react";
 import faker from "faker";
-import { PageContainer } from "../../../../shared/components";
+import { Calendar, PageContainer } from "../../../../shared/components";
 
 import {
     Header,
@@ -18,7 +18,7 @@ import {
     ProgressContent,
     MessagesContent,
 } from "./styles";
-import { ClassCard } from "../components";
+import { ClassCard, EmployeeCard } from "../components";
 import { AddCircleButton } from "../../../../shared/components/buttons";
 
 export function InstitutionsHomePageLayout(): JSX.Element {
@@ -36,74 +36,34 @@ export function InstitutionsHomePageLayout(): JSX.Element {
                             <AddCircleButton />
                         </SectionHeader>
                         <ClassesContent>
-                            <ClassCard
-                                educators={["Gabriel Santini"]}
-                                name="Turma de Informática"
-                                studentsCount={10}
-                                trailsCount={8}
-                            />
-                            <ClassCard
-                                educators={["Gabriel Santini"]}
-                                name="Turma de Informática"
-                                studentsCount={10}
-                                trailsCount={8}
-                            />
-
-                            <ClassCard
-                                educators={["Gabriel Santini"]}
-                                name="Turma de Informática"
-                                studentsCount={10}
-                                trailsCount={8}
-                            />
-                            <ClassCard
-                                educators={["Gabriel Santini"]}
-                                name="Turma de Informática"
-                                studentsCount={10}
-                                trailsCount={8}
-                            />
-                            <ClassCard
-                                educators={["Gabriel Santini"]}
-                                name="Turma de Informática"
-                                studentsCount={10}
-                                trailsCount={8}
-                            />
-                            <ClassCard
-                                educators={["Gabriel Santini"]}
-                                name="Turma de Informática"
-                                studentsCount={10}
-                                trailsCount={8}
-                            />
-                            <ClassCard
-                                educators={["Gabriel Santini"]}
-                                name="Turma de Informática"
-                                studentsCount={10}
-                                trailsCount={8}
-                            />
-                            <ClassCard
-                                educators={["Gabriel Santini"]}
-                                name="Turma de Informática"
-                                studentsCount={10}
-                                trailsCount={8}
-                            />
-                            <ClassCard
-                                educators={["Gabriel Santini"]}
-                                name="Turma de Informática"
-                                studentsCount={10}
-                                trailsCount={8}
-                            />
-                            <ClassCard
-                                educators={["Gabriel Santini"]}
-                                name="Turma de Informática"
-                                studentsCount={10}
-                                trailsCount={8}
-                            />
+                            {Array.from({ length: 8 }).map((_, i) => (
+                                <ClassCard
+                                    educators={["Gabriel Santini"]}
+                                    name="Turma de Informática"
+                                    studentsCount={10}
+                                    trailsCount={8}
+                                    key={i}
+                                />
+                            ))}
                         </ClassesContent>
                     </Section>
                     <Section className="section">
                         <SectionHeader>
                             <SectionTitle>Colaboradores</SectionTitle>
+                            <AddCircleButton />
                         </SectionHeader>
-                        <EmployeesContent></EmployeesContent>
+                        <EmployeesContent>
+                            {Array.from({ length: 8 }).map((_, i) => (
+                                <EmployeeCard
+                                    active={true}
+                                    firstName={faker.name.firstName()}
+                                    lastName={faker.name.lastName()}
+                                    photoUrl={faker.image.cats()}
+                                    role="Educador"
+                                    key={i}
+                                />
+                            ))}
+                        </EmployeesContent>
                     </Section>
                 </Column>
 
@@ -112,11 +72,14 @@ export function InstitutionsHomePageLayout(): JSX.Element {
                         <SectionHeader>
                             <SectionTitle>Calendário</SectionTitle>
                         </SectionHeader>
-                        <CalendarContent></CalendarContent>
+                        <CalendarContent>
+                            <Calendar />
+                        </CalendarContent>
                     </Section>
                     <Section className="section">
                         <SectionHeader>
                             <SectionTitle>Alunos</SectionTitle>
+                            <AddCircleButton />
                         </SectionHeader>
                         <StudentsContent></StudentsContent>
                     </Section>
@@ -131,6 +94,7 @@ export function InstitutionsHomePageLayout(): JSX.Element {
                     <Section className="section">
                         <SectionHeader>
                             <SectionTitle>Mensagens</SectionTitle>
+                            <AddCircleButton />
                         </SectionHeader>
                         <MessagesContent></MessagesContent>
                     </Section>

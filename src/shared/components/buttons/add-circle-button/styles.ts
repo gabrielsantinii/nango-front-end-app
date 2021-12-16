@@ -30,9 +30,9 @@ export const Container = styled.button`
 `;
 
 export const AddIcon = styled(PlusLg)`
-    width: ${measureEquivalence.width(15)};
+    width: 15px;
 
-    height: ${measureEquivalence.height(15)};
+    height: 15px;
 
     fill: var(--primary-white);
 `;

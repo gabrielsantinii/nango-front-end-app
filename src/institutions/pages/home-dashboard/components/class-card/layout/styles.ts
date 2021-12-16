@@ -10,6 +10,13 @@ export const CardContainer = styled.div`
     border-radius: 10px;
     padding-left: 18px;
     padding-right: 18px;
+
+    cursor: pointer;
+    transition: 180ms all;
+
+    &:hover {
+        filter: brightness(0.95);
+    }
 `;
 
 export const Column = styled.div`
@@ -19,10 +26,8 @@ export const Column = styled.div`
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    text-align: center;
 
-    display: flex;
-    justify-content: center;
-
-    color: var(--terceary-gray);
     font: 700 var(--default-font) "Metropolis";
+    color: var(--terceary-gray);
 `;

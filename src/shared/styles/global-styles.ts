@@ -48,6 +48,27 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
 
     font-family: 'Metropolis', sans-serif;
+    ::-webkit-scrollbar {
+      background-color: #fff;
+      width: 16px;
+    }
+
+    /* background of the scrollbar except button or resizer */
+    ::-webkit-scrollbar-track {
+    background-color: #fff;
+    }
+
+    /* scrollbar itself */
+    ::-webkit-scrollbar-thumb {
+      background-color: #babac0;
+      border-radius: 16px;
+      border: 4px solid #fff;
+    }
+
+    /* set button(top and bottom of the scrollbar) */
+    ::-webkit-scrollbar-button {
+      display: none;
+    }
 }
 
 body, #root {
@@ -70,6 +91,7 @@ body, #root {
 
     --primary-white: rgba(255, 255, 255, 1);
     --secondary-white: rgba(247, 247, 247, 1);
+    --terceary-white: rgba(242, 242, 242, 1);
 
     --default-font: 14.71px;
 
@@ -101,10 +123,10 @@ a, label, p, button, input, span {
 h1, h2, h3, h4 {
   margin: 0;
   padding: 0;
+  font-weight: 700;
 }
 
 h1, h2 {
-  font-weight: 700;
   color: var(--primary-gray);
 }
 
@@ -129,6 +151,12 @@ h3 {
   font-size: 18px;
   line-height: 18px;
   font-weight: 700;
+}
+
+h4 {
+  font-size: var(--default-font);
+  line-height: var(--default-font);
+  color: var(--secondary-gray);
 }
 
 p {

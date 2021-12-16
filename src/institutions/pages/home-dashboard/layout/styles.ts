@@ -44,6 +44,7 @@ export const SectionHeader = styled.div`
 
     margin-top: ${measureEquivalence.height(9)};
     margin-bottom: ${measureEquivalence.height(9)};
+    height: ${measureEquivalence.height(45)};
 
     > .add-circle-button {
         margin-left: auto;
@@ -65,7 +66,11 @@ export const ClassesContent = styled.section`
         margin-top: 8px;
     }
 
-    overflow: hidden;
+    overflow-x: scroll;
+
+    > .class-card:nth-child(odd) {
+        background: var(--terceary-white);
+    }
 `;
 
 export const EmployeesContent = styled.section`
@@ -75,7 +80,17 @@ export const EmployeesContent = styled.section`
     min-width: ${measureEquivalence.width(578)};
     max-width: ${measureEquivalence.width(578)};
 
-    border: 1px solid var(--primary-green);
+    display: flex;
+    align-items: center;
+    overflow-x: scroll;
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    > .employee-card + .employee-card {
+        margin-left: ${measureEquivalence.width(15)};
+    }
 `;
 
 export const CalendarContent = styled.section`
@@ -85,7 +100,15 @@ export const CalendarContent = styled.section`
     min-width: ${measureEquivalence.width(258)};
     max-width: ${measureEquivalence.width(258)};
 
-    border: 1px solid var(--primary-red);
+    display: flex;
+    /* padding: 15px; */
+    padding-top: ${measureEquivalence.height(15)};
+    padding-bottom: ${measureEquivalence.height(15)};
+    padding-left: ${measureEquivalence.width(15)};
+    padding-right: ${measureEquivalence.width(15)};
+
+    background-color: var(--secondary-white);
+    border-radius: 10px;
 `;
 
 export const StudentsContent = styled.section`
