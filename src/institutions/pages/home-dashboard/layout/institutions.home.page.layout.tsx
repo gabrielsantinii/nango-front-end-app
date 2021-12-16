@@ -7,17 +7,19 @@ import {
     InstitutionLogo,
     InstitutionName,
     Main,
-    ClassesSection,
-    CalendarSection,
-    MessagesSection,
-    ClassesSectionContent,
-    ProgressSection,
-    StudentsSection,
     SectionTitle,
     Column,
     SectionHeader,
-    EmployeesSection,
+    Section,
+    ClassesContent,
+    EmployeesContent,
+    CalendarContent,
+    StudentsContent,
+    ProgressContent,
+    MessagesContent,
 } from "./styles";
+import { ClassCard } from "../components";
+import { AddCircleButton } from "../../../../shared/components/buttons";
 
 export function InstitutionsHomePageLayout(): JSX.Element {
     return (
@@ -28,41 +30,110 @@ export function InstitutionsHomePageLayout(): JSX.Element {
             </Header>
             <Main>
                 <Column className="column">
-                    <ClassesSection className="section">
+                    <Section className="section">
                         <SectionHeader>
                             <SectionTitle>Classes</SectionTitle>
+                            <AddCircleButton />
                         </SectionHeader>
-                    </ClassesSection>
-                    <EmployeesSection className="section">
+                        <ClassesContent>
+                            <ClassCard
+                                educators={["Gabriel Santini"]}
+                                name="Turma de Informática"
+                                studentsCount={10}
+                                trailsCount={8}
+                            />
+                            <ClassCard
+                                educators={["Gabriel Santini"]}
+                                name="Turma de Informática"
+                                studentsCount={10}
+                                trailsCount={8}
+                            />
+
+                            <ClassCard
+                                educators={["Gabriel Santini"]}
+                                name="Turma de Informática"
+                                studentsCount={10}
+                                trailsCount={8}
+                            />
+                            <ClassCard
+                                educators={["Gabriel Santini"]}
+                                name="Turma de Informática"
+                                studentsCount={10}
+                                trailsCount={8}
+                            />
+                            <ClassCard
+                                educators={["Gabriel Santini"]}
+                                name="Turma de Informática"
+                                studentsCount={10}
+                                trailsCount={8}
+                            />
+                            <ClassCard
+                                educators={["Gabriel Santini"]}
+                                name="Turma de Informática"
+                                studentsCount={10}
+                                trailsCount={8}
+                            />
+                            <ClassCard
+                                educators={["Gabriel Santini"]}
+                                name="Turma de Informática"
+                                studentsCount={10}
+                                trailsCount={8}
+                            />
+                            <ClassCard
+                                educators={["Gabriel Santini"]}
+                                name="Turma de Informática"
+                                studentsCount={10}
+                                trailsCount={8}
+                            />
+                            <ClassCard
+                                educators={["Gabriel Santini"]}
+                                name="Turma de Informática"
+                                studentsCount={10}
+                                trailsCount={8}
+                            />
+                            <ClassCard
+                                educators={["Gabriel Santini"]}
+                                name="Turma de Informática"
+                                studentsCount={10}
+                                trailsCount={8}
+                            />
+                        </ClassesContent>
+                    </Section>
+                    <Section className="section">
                         <SectionHeader>
                             <SectionTitle>Colaboradores</SectionTitle>
                         </SectionHeader>
-                    </EmployeesSection>
+                        <EmployeesContent></EmployeesContent>
+                    </Section>
                 </Column>
 
                 <Column className="column">
-                    <CalendarSection className="section">
+                    <Section className="section">
                         <SectionHeader>
-                            <SectionTitle>Classes</SectionTitle>
+                            <SectionTitle>Calendário</SectionTitle>
                         </SectionHeader>
-                    </CalendarSection>
-                    <StudentsSection className="section">
+                        <CalendarContent></CalendarContent>
+                    </Section>
+                    <Section className="section">
                         <SectionHeader>
-                            <SectionTitle>Colaboradores</SectionTitle>
+                            <SectionTitle>Alunos</SectionTitle>
                         </SectionHeader>
-                    </StudentsSection>
+                        <StudentsContent></StudentsContent>
+                    </Section>
                 </Column>
                 <Column className="column">
-                    <ProgressSection className="section">
+                    <Section className="section">
                         <SectionHeader>
-                            <SectionTitle>Classes</SectionTitle>
+                            <SectionTitle>Performance</SectionTitle>
                         </SectionHeader>
-                    </ProgressSection>
-                    <MessagesSection className="section">
+                        <ProgressContent></ProgressContent>
+                    </Section>
+                    <Section className="section">
                         <SectionHeader>
-                            <SectionTitle>Colaboradores</SectionTitle>
+                            <SectionTitle>Mensagens</SectionTitle>
                         </SectionHeader>
-                    </MessagesSection>
+                        <MessagesContent></MessagesContent>
+                    </Section>
                 </Column>
             </Main>
         </PageContainer>

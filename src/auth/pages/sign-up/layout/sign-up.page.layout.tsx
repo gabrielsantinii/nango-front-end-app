@@ -3,7 +3,7 @@ import { TextInput, SelectInput } from "../../../../shared/components/inputs";
 import { PrimaryButton } from "../../../../shared/components/buttons";
 import { Stepper } from "../components";
 
-import { useStep } from "../../../../shared/hooks/use-step/use.step";
+import { useNavigation, useStep } from "../../../../shared/hooks";
 import { inputOptions, textByStep } from "../config";
 
 import { SignupForm } from "./styles";
@@ -11,6 +11,7 @@ import { ContentSection, SectionTitle, SectionDescription } from "../../../share
 
 const numberOfSteps = 3;
 export function SignupPageLayout(): JSX.Element {
+    const navigation = useNavigation();
     const { step, nextStep } = useStep({ numberOfSteps });
     return (
         <AuthPageContainer>
@@ -66,7 +67,11 @@ export function SignupPageLayout(): JSX.Element {
                         </>
                     )}
 
-                    <PrimaryButton className="next-button" onClick={nextStep} type="button">
+                    <PrimaryButton
+                        className="next-button"
+                        onClick={() => (step === numberOfSteps - 1 ? navigation.goToHomePage() : nextStep())}
+                        type="button"
+                    >
                         {step === numberOfSteps - 1 ? "Registrar" : "Seguir"}
                     </PrimaryButton>
                 </SignupForm>

@@ -25,7 +25,7 @@ export const Wrapper = styled.div`
 `;
 
 export const ContentWrapper = styled.main`
-    padding-top: ${measureEquivalence.height(50)};
+    padding-top: ${measureEquivalence.height(40)};
     padding-bottom: ${measureEquivalence.height(45)};
     width: 100%;
     height: 100%;

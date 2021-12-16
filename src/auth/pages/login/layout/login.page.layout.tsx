@@ -25,7 +25,9 @@ export function LoginPageLayout(): JSX.Element {
                     <TextInput label="E-mail" name="email" register={() => {}} />
                     <TextInput label="Senha" name="pass" type="password" register={() => {}} />
                     <ForgotPasswordLink>Esqueceu sua senha?</ForgotPasswordLink>
-                    <PrimaryButton className="login-button">Logar</PrimaryButton>
+                    <PrimaryButton className="login-button" type="button" onClick={navigation.goToHomePage}>
+                        Logar
+                    </PrimaryButton>
                 </LoginForm>
             </ContentSection>
         </AuthPageContainer>

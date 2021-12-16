@@ -10,6 +10,7 @@ export function Routes(): JSX.Element {
                     <Route path="/login" caseSensitive={false} element={<LoginPageLayout />} />
                     <Route path="/sign-up" caseSensitive={false} element={<SignupPageLayout />} />
                     <Route path="/home" caseSensitive={false} element={<InstitutionsHomePageLayout />} />
+                    <Route path="/" caseSensitive={false} element={<InstitutionsHomePageLayout />} />
                 </Switch>
             </BrowserRouter>
         </>

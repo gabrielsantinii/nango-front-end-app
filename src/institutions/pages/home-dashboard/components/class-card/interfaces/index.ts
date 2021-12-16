@@ -1,0 +1,1 @@
+export type { ClassCardProps } from './class-card-props.interface'

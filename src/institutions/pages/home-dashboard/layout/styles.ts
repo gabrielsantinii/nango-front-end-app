@@ -15,15 +15,15 @@ export const InstitutionName = styled.h1`
     color: var(--secondary-gray);
     font-size: 34px;
 
-    margin-left: 10px;
+    margin-left: ${measureEquivalence.width(10)};
 `;
 
 export const Main = styled.main`
-    margin-top: ${measureEquivalence.height(64)};
+    margin-top: ${measureEquivalence.height(32)};
     display: flex;
 
     > .column + .column {
-        margin-left: 36px;
+        margin-left: 42px;
     }
 `;
 
@@ -36,19 +36,41 @@ export const Column = styled.div`
     }
 `;
 
-export const ClassesSection = styled.section`
-    min-height: ${measureEquivalence.height(435)};
-    max-height: ${measureEquivalence.height(435)};
+export const Section = styled.section``;
+
+export const SectionHeader = styled.div`
+    display: flex;
+    align-items: center;
+
+    margin-top: ${measureEquivalence.height(9)};
+    margin-bottom: ${measureEquivalence.height(9)};
+
+    > .add-circle-button {
+        margin-left: auto;
+    }
+`;
+
+export const SectionTitle = styled.h3``;
+
+export const ClassesContent = styled.section`
+    min-height: ${measureEquivalence.height(408)};
+    max-height: ${measureEquivalence.height(408)};
 
     min-width: ${measureEquivalence.width(578)};
     max-width: ${measureEquivalence.width(578)};
 
-    border: 1px solid var(--terceary-gray);
+    /* border: 1px solid var(--terceary-gray); */
+
+    > .class-card + .class-card {
+        margin-top: 8px;
+    }
+
+    overflow: hidden;
 `;
 
-export const EmployeesSection = styled.section`
-    min-height: ${measureEquivalence.height(307)};
-    max-height: ${measureEquivalence.height(307)};
+export const EmployeesContent = styled.section`
+    min-height: ${measureEquivalence.height(286)};
+    max-height: ${measureEquivalence.height(286)};
 
     min-width: ${measureEquivalence.width(578)};
     max-width: ${measureEquivalence.width(578)};
@@ -56,9 +78,9 @@ export const EmployeesSection = styled.section`
     border: 1px solid var(--primary-green);
 `;
 
-export const CalendarSection = styled.section`
-    min-height: ${measureEquivalence.height(262)};
-    max-height: ${measureEquivalence.height(262)};
+export const CalendarContent = styled.section`
+    min-height: ${measureEquivalence.height(225)};
+    max-height: ${measureEquivalence.height(225)};
 
     min-width: ${measureEquivalence.width(258)};
     max-width: ${measureEquivalence.width(258)};
@@ -66,9 +88,9 @@ export const CalendarSection = styled.section`
     border: 1px solid var(--primary-red);
 `;
 
-export const StudentsSection = styled.section`
-    min-height: ${measureEquivalence.height(474)};
-    max-height: ${measureEquivalence.height(474)};
+export const StudentsContent = styled.section`
+    min-height: ${measureEquivalence.height(464)};
+    max-height: ${measureEquivalence.height(464)};
 
     min-width: ${measureEquivalence.width(258)};
     max-width: ${measureEquivalence.width(258)};
@@ -76,9 +98,9 @@ export const StudentsSection = styled.section`
     border: 1px solid var(--terceary-gray);
 `;
 
-export const ProgressSection = styled.section`
-    min-height: ${measureEquivalence.height(262)};
-    max-height: ${measureEquivalence.height(262)};
+export const ProgressContent = styled.section`
+    min-height: ${measureEquivalence.height(225)};
+    max-height: ${measureEquivalence.height(225)};
 
     min-width: ${measureEquivalence.width(258)};
     max-width: ${measureEquivalence.width(258)};
@@ -86,9 +108,9 @@ export const ProgressSection = styled.section`
     border: 1px solid var(--primary-red);
 `;
 
-export const MessagesSection = styled.section`
-    min-height: ${measureEquivalence.height(474)};
-    max-height: ${measureEquivalence.height(474)};
+export const MessagesContent = styled.section`
+    min-height: ${measureEquivalence.height(464)};
+    max-height: ${measureEquivalence.height(464)};
 
     min-width: ${measureEquivalence.width(258)};
     max-width: ${measureEquivalence.width(258)};
@@ -96,15 +118,9 @@ export const MessagesSection = styled.section`
     border: 1px solid #4124;
 `;
 
-export const SectionTitle = styled.h3``;
-
-export const SectionHeader = styled.div`
-    margin-bottom: ${measureEquivalence.height(32)};
-`;
-
-export const ClassesSectionContent = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-self: stretch;
-    flex: 1;
-`;
+// export const ClassesSectionContent = styled.div`
+//     display: flex;
+//     flex-direction: column;
+//     align-self: stretch;
+//     flex: 1;
+// `;
