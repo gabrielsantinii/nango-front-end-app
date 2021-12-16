@@ -19,7 +19,7 @@ export const InstitutionName = styled.h1`
 `;
 
 export const Main = styled.main`
-    margin-top: ${measureEquivalence.height(32)};
+    margin-top: ${measureEquivalence.height(18)};
     display: flex;
 
     > .column + .column {

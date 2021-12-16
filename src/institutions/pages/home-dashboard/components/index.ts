@@ -1,1 +1,1 @@
-export { ClassesWidget, EmployeesWidget, StudentsWidget } from "./widgets";
+export { ClassesWidget, EmployeesWidget, StudentsWidget, CalendarWidget, MessagesWidget, ProgressWidget } from "./widgets";

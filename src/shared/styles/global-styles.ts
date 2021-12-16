@@ -83,6 +83,8 @@ body, #root {
 :root {
     --primary-red: rgba(255, 75, 75, 1);
     --primary-green: rgba(0, 255, 10, 1);
+    --primary-blue: rgba(36, 97, 255, 1);
+
 
     --primary-gray: rgba(91, 91, 91, 1);
     --secondary-gray: rgba(130, 130, 130, 1);

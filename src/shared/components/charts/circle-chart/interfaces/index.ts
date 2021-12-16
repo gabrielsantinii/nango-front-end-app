@@ -1,0 +1,1 @@
+export type { CircleChartProps } from './circle-chart-props.interface'

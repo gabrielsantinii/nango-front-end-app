@@ -25,8 +25,8 @@ export const Wrapper = styled.div`
 `;
 
 export const ContentWrapper = styled.main`
-    padding-top: ${measureEquivalence.height(40)};
-    padding-bottom: ${measureEquivalence.height(45)};
+    padding-top: ${measureEquivalence.height(30)};
+    padding-bottom: ${measureEquivalence.height(20)};
     width: 100%;
     height: 100%;
     align-self: stretch;

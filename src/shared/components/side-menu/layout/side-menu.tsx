@@ -11,8 +11,10 @@ import {
 } from "./styles";
 import logo from "../../../assets/images/logo.png";
 import { Avatar } from "../..";
+import { useNavigation } from "../../../hooks";
 
 export function SideMenu(): JSX.Element {
+    const navigation = useNavigation();
     return (
         <SideMenuContainer>
             <Logo src={logo} alt="NANGO" />
@@ -21,7 +23,7 @@ export function SideMenu(): JSX.Element {
             <ActivitiesIcon />
             <SideMenuFooter>
                 <Avatar src={faker.image.animals()} />
-                <SignoutIcon />
+                <SignoutIcon onClick={navigation.goToLoginPage} />
             </SideMenuFooter>
         </SideMenuContainer>
     );

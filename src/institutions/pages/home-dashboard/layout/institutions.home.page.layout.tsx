@@ -1,7 +1,13 @@
-import React from "react";
 import faker from "faker";
-import { Calendar, PageContainer } from "../../../../shared/components";
-import { ClassesWidget, StudentsWidget, EmployeesWidget, CalendarWidget, MessagesWidget } from "../components/widgets";
+import { PageContainer } from "../../../../shared/components";
+import {
+    ClassesWidget,
+    StudentsWidget,
+    EmployeesWidget,
+    CalendarWidget,
+    MessagesWidget,
+    ProgressWidget,
+} from "../components";
 
 import {
     Header,
@@ -73,9 +79,11 @@ export function InstitutionsHomePageLayout(): JSX.Element {
                 <Column className="column">
                     <Section className="section">
                         <SectionHeader>
-                            <SectionTitle>Performance</SectionTitle>
+                            <SectionTitle>Progresso do Semestre</SectionTitle>
                         </SectionHeader>
-                        <ProgressContent></ProgressContent>
+                        <ProgressContent>
+                            <ProgressWidget />
+                        </ProgressContent>
                     </Section>
                     <Section className="section">
                         <SectionHeader>
