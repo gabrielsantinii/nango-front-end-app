@@ -165,6 +165,10 @@ p {
   color: var(--primary-gray);
 }
 
+span {
+  color: var(--quaternary-gray);
+}
+
 a {
   text-decoration: none;
   cursor: pointer;

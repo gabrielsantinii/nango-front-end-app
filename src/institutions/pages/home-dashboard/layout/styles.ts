@@ -118,7 +118,19 @@ export const StudentsContent = styled.section`
     min-width: ${measureEquivalence.width(258)};
     max-width: ${measureEquivalence.width(258)};
 
-    border: 1px solid var(--terceary-gray);
+    padding-top: ${measureEquivalence.height(22)};
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--secondary-white);
+    border-radius: 10px;
+
+    overflow-y: scroll;
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
 `;
 
 export const ProgressContent = styled.section`
@@ -128,7 +140,8 @@ export const ProgressContent = styled.section`
     min-width: ${measureEquivalence.width(258)};
     max-width: ${measureEquivalence.width(258)};
 
-    border: 1px solid var(--primary-red);
+    background-color: var(--secondary-white);
+    border-radius: 10px;
 `;
 
 export const MessagesContent = styled.section`
@@ -138,7 +151,8 @@ export const MessagesContent = styled.section`
     min-width: ${measureEquivalence.width(258)};
     max-width: ${measureEquivalence.width(258)};
 
-    border: 1px solid #4124;
+    background-color: var(--secondary-white);
+    border-radius: 10px;
 `;
 
 // export const ClassesSectionContent = styled.div`

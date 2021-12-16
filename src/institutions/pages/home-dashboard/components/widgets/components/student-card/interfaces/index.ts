@@ -1,0 +1,1 @@
+export type { StudentCardProps } from './student-card-props.interface'

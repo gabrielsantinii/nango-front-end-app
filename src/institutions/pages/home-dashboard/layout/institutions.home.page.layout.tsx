@@ -20,6 +20,7 @@ import {
 } from "./styles";
 import { ClassCard, EmployeeCard } from "../components";
 import { AddCircleButton } from "../../../../shared/components/buttons";
+import { StudentsWidget } from "../components/widgets";
 
 export function InstitutionsHomePageLayout(): JSX.Element {
     return (
@@ -81,7 +82,9 @@ export function InstitutionsHomePageLayout(): JSX.Element {
                             <SectionTitle>Alunos</SectionTitle>
                             <AddCircleButton />
                         </SectionHeader>
-                        <StudentsContent></StudentsContent>
+                        <StudentsContent>
+                            <StudentsWidget />
+                        </StudentsContent>
                     </Section>
                 </Column>
                 <Column className="column">
