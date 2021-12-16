@@ -1,7 +1,7 @@
 import React from "react";
 import faker from "faker";
 import { Calendar, PageContainer } from "../../../../shared/components";
-import { ClassesWidget, StudentsWidget, EmployeesWidget } from "../components/widgets";
+import { ClassesWidget, StudentsWidget, EmployeesWidget, CalendarWidget } from "../components/widgets";
 
 import {
     Header,
@@ -57,7 +57,7 @@ export function InstitutionsHomePageLayout(): JSX.Element {
                             <SectionTitle>Calendário</SectionTitle>
                         </SectionHeader>
                         <CalendarContent>
-                            <Calendar />
+                            <CalendarWidget />
                         </CalendarContent>
                     </Section>
                     <Section className="section">

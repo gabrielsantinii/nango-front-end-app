@@ -6,6 +6,7 @@ export const StudentsWidgetContainer = styled.div`
 
     display: flex;
     flex-direction: column;
+    flex: 1;
 
     background-color: var(--secondary-white);
     border-radius: 10px;

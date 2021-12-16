@@ -5,7 +5,7 @@ import { ClassesWidgetContainer } from './styles'
 export function ClassesWidget(): JSX.Element {
     return (
         <ClassesWidgetContainer>
-            {Array.from({ length: 8 }).map((_, i) => (
+            {Array.from({ length: 10 }).map((_, i) => (
                 <ClassCard
                     educators={["Gabriel Santini"]}
                     name="Turma de Informática"

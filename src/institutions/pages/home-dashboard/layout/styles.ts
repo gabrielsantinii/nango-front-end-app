@@ -77,16 +77,7 @@ export const CalendarContent = styled.section`
 
     min-width: ${measureEquivalence.width(258)};
     max-width: ${measureEquivalence.width(258)};
-
     display: flex;
-    /* padding: 15px; */
-    padding-top: ${measureEquivalence.height(15)};
-    padding-bottom: ${measureEquivalence.height(15)};
-    padding-left: ${measureEquivalence.width(15)};
-    padding-right: ${measureEquivalence.width(15)};
-
-    background-color: var(--secondary-white);
-    border-radius: 10px;
 `;
 
 export const StudentsContent = styled.section`
