@@ -98,6 +98,11 @@ a, label, p, button, input, span {
   line-height: var(--default-font);
 }
 
+h1, h2, h3, h4 {
+  margin: 0;
+  padding: 0;
+}
+
 h1, h2 {
   font-weight: 700;
   color: var(--primary-gray);
@@ -117,6 +122,13 @@ h1 {
 h2 {
   font-size: 36px;
   line-height: 36px;
+}
+
+h3 {
+  color: var(--secondary-gray);
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: 700;
 }
 
 p {
