@@ -1,0 +1,1 @@
+export type { MessageCardProps } from './message-card-props.interface'

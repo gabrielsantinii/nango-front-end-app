@@ -106,7 +106,5 @@ export const MessagesContent = styled.section`
 
     min-width: ${measureEquivalence.width(258)};
     max-width: ${measureEquivalence.width(258)};
-
-    background-color: var(--secondary-white);
-    border-radius: 10px;
+    display: flex;
 `;
