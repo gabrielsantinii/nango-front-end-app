@@ -6,13 +6,13 @@ export const Container = styled.div`
     width: 100%;
 
     > label {
-      margin-bottom: 8px;
+        margin-bottom: 8px;
     }
 
     > .basic-single {
         padding: 0;
         margin: 0;
-        
+
         > .select__control {
             width: 100%;
             height: 55px;
@@ -48,7 +48,6 @@ export const Container = styled.div`
                 padding: 0;
                 display: flex !important;
                 align-items: center !important;
-                
 
                 > .select__placeholder {
                     font: 500 var(--default-font) "Metropolis", sans-serif;
@@ -92,6 +91,14 @@ export const Container = styled.div`
                     color: var(--primary-gray);
                     font: 500 var(--default-font) "Metropolis", sans-serif;
                 }
+            }
+        }
+    }
+
+    &.error {
+        > .basic-single {
+            > .select__control {
+                border-color: var(--primary-red);
             }
         }
     }

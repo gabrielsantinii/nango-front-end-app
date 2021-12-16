@@ -5,7 +5,7 @@ import { Controller } from "react-hook-form";
 import { SelectInputProps } from "../types";
 
 import { Container } from "./styles";
-import { ErrorMessage } from "../../styles";
+import { ErrorMessage, HelpMessage } from "../../styles";
 
 export function SelectInput({
     name,
@@ -14,14 +14,16 @@ export function SelectInput({
     options,
     defaultValue,
     error,
-    isMulti
+    isMulti,
+    helpMessage,
+    placeholder = "Selecione uma opção",
 }: SelectInputProps): JSX.Element {
     // const {
     //     control,
     //     formState: { errors },
     // } = useFormContext();
     return (
-        <Container className={error ? "error select input-container" : "select input-container"}>
+        <Container className={error ? "select input-container error" : "select input-container"}>
             {label && <label>{label}</label>}
             {/* <Controller
                 name={name}
@@ -30,7 +32,7 @@ export function SelectInput({
             <ReactSelect
                 // {...field}
                 isMulti={!!isMulti}
-                placeholder="Selecione uma opção"
+                placeholder={placeholder}
                 className="basic-single"
                 classNamePrefix="select"
                 name={name}
@@ -41,6 +43,7 @@ export function SelectInput({
             />
             {/* )}
             /> */}
+            {helpMessage && !error && <HelpMessage>{helpMessage}</HelpMessage>}
         </Container>
     );
 }

@@ -5,4 +5,5 @@ export type InputProps = {
     error?: string;
     name: string;
     type?: string;
+    helpMessage?: string;
 };
