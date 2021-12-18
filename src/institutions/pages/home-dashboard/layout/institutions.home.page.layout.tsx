@@ -35,7 +35,7 @@ export function InstitutionsHomePageLayout(): JSX.Element {
         <PageContainer>
             <HomeDashboardContextProvider>
                 <Header>
-                    <InstitutionLogo src={faker.image.business()} />
+                    <InstitutionLogo src={faker.image.animals()} />
                     <InstitutionName>Colégio Verista</InstitutionName>
                 </Header>
                 <Main>

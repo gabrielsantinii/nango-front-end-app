@@ -12,7 +12,7 @@ interface ClassPreview {
     name: string;
     trailsCount: number;
     studentsCount: number;
-    educators: [string];
+    educators: string[];
 }
 
 interface EmployeePreview {

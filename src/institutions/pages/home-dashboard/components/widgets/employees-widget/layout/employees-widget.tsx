@@ -13,7 +13,7 @@ export function EmployeesWidget(): JSX.Element {
                         active={true}
                         firstName={faker.name.firstName()}
                         lastName={faker.name.lastName()}
-                        photoUrl={faker.image.cats()}
+                        photoUrl={faker.image.animals()}
                         role="Educador"
                         key={i}
                     />
