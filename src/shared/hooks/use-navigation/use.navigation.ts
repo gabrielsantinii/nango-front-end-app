@@ -5,7 +5,7 @@ export function useNavigation(): UseNavigation {
     const reactNavigate = useReactNavigate();
 
     function goToHomePage() {
-        reactNavigate("/home");
+        reactNavigate("/");
     }
     function goToLoginPage() {
         reactNavigate("/login");
