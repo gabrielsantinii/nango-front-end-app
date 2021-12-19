@@ -4,7 +4,6 @@ import { XLg as Close } from "@styled-icons/bootstrap";
 
 export const Modal = styled(Sheet)`
     display: flex;
-    z-index: 44 !important;
     .react-modal-sheet-container {
         background: transparent !important;
         border-top-right-radius: 10px !important;
@@ -45,7 +44,7 @@ export const Modal = styled(Sheet)`
 `;
 
 export const Form = styled.form`
-    padding: 24px 12px;
+    padding: 24px 24px;
     > .input-container + .input-container,
     .primary-button {
         margin-top: 12px;

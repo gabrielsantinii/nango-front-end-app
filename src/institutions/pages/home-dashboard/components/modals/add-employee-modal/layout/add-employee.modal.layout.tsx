@@ -25,7 +25,7 @@ const AddEmployeeModalComponent: ForwardRefRenderFunction<AddEmployeeModalHandle
 
     return (
         <FormProvider {...formMethods}>
-            <Modal ref={modalRef} snapPoints={[0.8]} initialSnap={0} isOpen={modalIsOpen} onClose={closeModal}>
+            <Modal ref={modalRef} snapPoints={[0.7]} initialSnap={0} isOpen={modalIsOpen} onClose={closeModal}>
                 <Sheet.Container>
                     <Sheet.Content>
                         <header>
