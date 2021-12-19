@@ -24,7 +24,7 @@ export function Routes(): JSX.Element {
                             <RedirectIfAuthed>
                                 <LoginPageLayout />
                             </RedirectIfAuthed>
-                        }
+                        } 
                     />
                     <Route
                         path="/sign-up"
