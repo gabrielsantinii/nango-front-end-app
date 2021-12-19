@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
@@ -13,7 +14,6 @@ import { useNavigation } from "../../../../shared/hooks";
 import { ContentSection, SectionTitle, SectionDescription } from "../../../shared/styles";
 import { LoginForm, ForgotPasswordLink } from "./styles";
 import { getFieldErrorMessage } from "../../../../shared/helpers";
-import { useMemo } from "react";
 import { LoginController } from "../controllers";
 
 export function LoginPageLayout(): JSX.Element {
