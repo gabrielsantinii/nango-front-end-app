@@ -12,4 +12,9 @@ export const InputContainer = styled.div`
         border-radius: 10px;
         border: 1px solid var(--terceary-gray);
     }
+    &.error {
+        > input {
+            border-color: var(--primary-red);
+        }
+    }
 `;

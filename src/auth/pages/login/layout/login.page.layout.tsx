@@ -1,13 +1,25 @@
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+
+import { LoginFormValues } from "../interfaces";
+import { LoginSchema } from "../schemas";
+
 import { AuthPageContainer } from "../../../components/auth-page-container";
 import { PrimaryButton } from "../../../../shared/components/buttons";
 import { TextInput } from "../../../../shared/components/inputs";
 
-import { LoginForm, ForgotPasswordLink } from "./styles";
-import { ContentSection, SectionTitle, SectionDescription } from "../../../shared/styles";
 import { useNavigation } from "../../../../shared/hooks";
+
+import { ContentSection, SectionTitle, SectionDescription } from "../../../shared/styles";
+import { LoginForm, ForgotPasswordLink } from "./styles";
+import { getFieldErrorMessage } from "../../../../shared/helpers";
+import { useMemo } from "react";
+import { LoginController } from "../controllers";
 
 export function LoginPageLayout(): JSX.Element {
     const navigation = useNavigation();
+    const formMethods = useForm<LoginFormValues>({ resolver: yupResolver(LoginSchema) });
+    const loginController = useMemo(() => new LoginController(formMethods), [])
     return (
         <AuthPageContainer>
             <ContentSection>
@@ -21,11 +33,22 @@ export function LoginPageLayout(): JSX.Element {
             <ContentSection>
                 <SectionTitle>Logar</SectionTitle>
                 <SectionDescription>Sua instituição já é cadastrada? acesse pelo login abaixo.</SectionDescription>
-                <LoginForm>
-                    <TextInput label="E-mail" name="email" register={() => {}} />
-                    <TextInput label="Senha" name="pass" type="password" register={() => {}} />
+                <LoginForm onSubmit={formMethods.handleSubmit(loginController.login)}>
+                    <TextInput
+                        error={getFieldErrorMessage(formMethods, "email")}
+                        label="E-mail"
+                        name="email"
+                        register={formMethods.register}
+                    />
+                    <TextInput
+                        error={getFieldErrorMessage(formMethods, "pass")}
+                        label="Senha"
+                        name="pass"
+                        type="password"
+                        register={formMethods.register}
+                    />
                     <ForgotPasswordLink>Esqueceu sua senha?</ForgotPasswordLink>
-                    <PrimaryButton className="login-button" type="button" onClick={navigation.goToHomePage}>
+                    <PrimaryButton className="login-button" type="submit">
                         Logar
                     </PrimaryButton>
                 </LoginForm>

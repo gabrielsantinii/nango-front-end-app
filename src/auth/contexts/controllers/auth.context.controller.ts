@@ -1,4 +1,4 @@
-import firebaseService from "../../../shared/providers/firebase/services/firebase.service";
+import { firebaseService } from "../../../shared/providers/firebase/services";
 import { notificationsService } from "../../../shared/services/notifications";
 import { StateModifier } from "../../../shared/types";
 import { ReadAuthDto, ReadUserDto } from "../../dtos";
@@ -16,7 +16,6 @@ class AuthContextController {
     }
 
     public identifyUserAuth(setAuth: StateModifier<ReadAuthDto>) {
-        
         firebaseService.getAuth().onAuthStateChanged((user) => {
             if (user) {
                 setAuth({ email: user.email as string, uid: user.uid });
