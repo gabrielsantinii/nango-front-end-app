@@ -1,1 +1,1 @@
-export { default as userContextController } from './auth.context.controller'
+export * from './auth.context.controller'

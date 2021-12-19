@@ -5,7 +5,7 @@ import { ReadAuthDto, ReadUserDto } from "../../dtos";
 import { getUserErrors, signOutErrors } from "../errors";
 import { userContextService } from "../services";
 
-class UserContextController {
+class AuthContextController {
     public async getUserByAuthId(authId: string, setUser: StateModifier<ReadUserDto>) {
         try {
             const user = await userContextService.getUserByAuthId(authId);
@@ -16,6 +16,7 @@ class UserContextController {
     }
 
     public identifyUserAuth(setAuth: StateModifier<ReadAuthDto>) {
+        
         firebaseService.getAuth().onAuthStateChanged((user) => {
             if (user) {
                 setAuth({ email: user.email as string, uid: user.uid });
@@ -34,4 +35,4 @@ class UserContextController {
     }
 }
 
-export default new UserContextController();
+export const authContextController = new AuthContextController();

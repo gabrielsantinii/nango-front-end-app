@@ -4,3 +4,4 @@ export { Avatar } from "./avatar";
 export { StatusCircle } from "./status-circle";
 export { Switcher } from "./switcher";
 export { Calendar } from "./calendar";
+export * from './notification'
