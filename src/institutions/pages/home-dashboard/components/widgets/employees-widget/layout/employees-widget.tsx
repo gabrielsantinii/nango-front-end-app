@@ -5,7 +5,10 @@ import { EmployeeCard } from "../components";
 import { EmployeesWidgetContainer } from "./styles";
 
 export function EmployeesWidget(): JSX.Element {
+    
     return (
+        <>
+        
         <EmployeesWidgetContainer>
             <ScrollContainer className="scroll-container">
                 {Array.from({ length: 8 }).map((_, i) => (
@@ -20,5 +23,6 @@ export function EmployeesWidget(): JSX.Element {
                 ))}
             </ScrollContainer>
         </EmployeesWidgetContainer>
+        </>
     );
 }
