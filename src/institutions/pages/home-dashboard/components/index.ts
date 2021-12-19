@@ -1,2 +1,2 @@
 export * from "./widgets";
-export * from "./modals/add-employee-modal/layout";
+export * from './modals'

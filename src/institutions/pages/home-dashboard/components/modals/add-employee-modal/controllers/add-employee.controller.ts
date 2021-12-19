@@ -19,7 +19,7 @@ export class AddEmployeeController {
         const addEmployeePromise = addEmployeeService.add(formattedData);
         notificationsService.promise(addEmployeePromise, {
             error: addEmployeeServiceErrors.unexpected,
-            loading: "Adicionado colaborador...",
+            loading: "Adicionando colaborador...",
             success: "Colaborador adicionado com sucesso!",
         });
         closeModal();

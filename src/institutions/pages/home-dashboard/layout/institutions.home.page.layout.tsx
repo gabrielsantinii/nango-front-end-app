@@ -9,8 +9,10 @@ import {
     MessagesWidget,
     ProgressWidget,
     AddEmployeeModal,
+    AddStudentModal,
 } from "../components";
 import { AddEmployeeModalHandles } from "../components/modals/add-employee-modal/interfaces";
+import { AddStudentModalHandles } from "../components/modals/add-student-modal/interfaces";
 
 import { HomeDashboardContextProvider } from "../contexts";
 
@@ -30,13 +32,15 @@ import {
     ProgressContent,
     MessagesContent,
 } from "./styles";
-import fakeLogo from '../assets/fake-logo.png'
+import fakeLogo from "../assets/fake-logo.png";
 
 export function InstitutionsHomePageLayout(): JSX.Element {
     const addEmployeeModalRef = useRef<AddEmployeeModalHandles>(null);
+    const addStudentModalRef = useRef<AddStudentModalHandles>(null);
     return (
         <>
             <AddEmployeeModal ref={addEmployeeModalRef} />
+            <AddStudentModal ref={addStudentModalRef} />
             <PageContainer>
                 <HomeDashboardContextProvider>
                     <Header>
@@ -77,7 +81,7 @@ export function InstitutionsHomePageLayout(): JSX.Element {
                             <Section className="section">
                                 <SectionHeader>
                                     <SectionTitle>Alunos</SectionTitle>
-                                    <AddCircleButton />
+                                    <AddCircleButton onClick={() => addStudentModalRef.current?.openModal()} />
                                 </SectionHeader>
                                 <StudentsContent>
                                     <StudentsWidget />

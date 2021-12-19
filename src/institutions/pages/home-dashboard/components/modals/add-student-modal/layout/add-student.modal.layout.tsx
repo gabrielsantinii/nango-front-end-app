@@ -5,18 +5,17 @@ import { FormProvider, useForm } from "react-hook-form";
 
 import { useModal } from "../../../../../../../shared/hooks";
 import { PrimaryButton } from "../../../../../../../shared/components/buttons";
-import { AddEmployeeFormValues, AddEmployeeModalHandles } from "../interfaces";
+import { AddStudentFormValues, AddStudentModalHandles } from "../interfaces";
 
 import { Modal, Form } from "../../styles";
-import { SelectInput, TextInput } from "../../../../../../../shared/components/inputs";
-import { inputOptions } from "../config";
-import { AddEmployeeController } from "../controllers";
+import { TextInput } from "../../../../../../../shared/components/inputs";
+import { AddStudentController } from "../controllers";
 
-const AddEmployeeModalComponent: ForwardRefRenderFunction<AddEmployeeModalHandles, {}> = ({}, ref): JSX.Element => {
+const AddStudentModalComponent: ForwardRefRenderFunction<AddStudentModalHandles, {}> = ({}, ref): JSX.Element => {
     const modalRef = React.useRef<SheetRef>();
     const { modalIsOpen, closeModal, openModal } = useModal();
-    const formMethods = useForm<AddEmployeeFormValues>({ mode: "all" });
-    const addEmployeeController = useMemo(() => new AddEmployeeController(), []);
+    const formMethods = useForm<AddStudentFormValues>({ mode: "all" });
+    const addStudentController = useMemo(() => new AddStudentController(), []);
     useImperativeHandle(ref, () => {
         return {
             openModal,
@@ -25,20 +24,26 @@ const AddEmployeeModalComponent: ForwardRefRenderFunction<AddEmployeeModalHandle
 
     return (
         <FormProvider {...formMethods}>
-            <Modal ref={modalRef} snapPoints={[0.8]} initialSnap={0} isOpen={modalIsOpen} onClose={closeModal}>
+            <Modal ref={modalRef} snapPoints={[0.6]} initialSnap={0} isOpen={modalIsOpen} onClose={closeModal}>
                 <Sheet.Container>
                     <Sheet.Content>
                         <header>
                             <p>
-                                <strong>Colaboradores /</strong> Adicionar
+                                <strong>Alunos /</strong> Adicionar
                             </p>
                         </header>
                         <FormProvider {...formMethods}>
                             <Form
-                                onSubmit={formMethods.handleSubmit((data: AddEmployeeFormValues) =>
-                                    addEmployeeController.add(data, closeModal)
+                                onSubmit={formMethods.handleSubmit((data: AddStudentFormValues) =>
+                                    addStudentController.add(data, closeModal)
                                 )}
                             >
+                                <TextInput
+                                    placeholder="Digite o CPF"
+                                    label="CPF"
+                                    name="cpfCnpj"
+                                    register={formMethods.register}
+                                />
                                 <TextInput
                                     placeholder="Digite o nome"
                                     label="Nome"
@@ -63,19 +68,6 @@ const AddEmployeeModalComponent: ForwardRefRenderFunction<AddEmployeeModalHandle
                                     name="phone"
                                     register={formMethods.register}
                                 />
-                                <SelectInput
-                                    placeholder="Selecione um perfil"
-                                    label="Perfil"
-                                    name="profileType"
-                                    options={inputOptions.profileType}
-                                    register={formMethods.register}
-                                />
-                                <TextInput
-                                    placeholder="Digite o cargo em específico"
-                                    label="Cargo"
-                                    name="role"
-                                    register={formMethods.register}
-                                />
                                 <PrimaryButton onClick={() => {}}>Adicionar</PrimaryButton>
                             </Form>
                         </FormProvider>
@@ -89,4 +81,4 @@ const AddEmployeeModalComponent: ForwardRefRenderFunction<AddEmployeeModalHandle
     );
 };
 
-export const AddEmployeeModal = forwardRef(AddEmployeeModalComponent);
+export const AddStudentModal = forwardRef(AddStudentModalComponent);
