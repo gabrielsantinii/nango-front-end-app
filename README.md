@@ -4,7 +4,7 @@
 
 ## Front-end
 
-Este diretório se refere a parte front-end do app. Os detalhes features e módulos da aplicação, ficam disponíveis no [repositório fonte.]()https://github.com/gabrielsantinii/nango.
+Este diretório se refere a parte front-end do app. Os detalhes features e módulos da aplicação, ficam disponíveis no [repositório fonte.](https://github.com/gabrielsantinii/nango.)
 
 
 ## Instalação
