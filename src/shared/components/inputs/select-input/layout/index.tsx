@@ -1,6 +1,6 @@
 import React from "react";
 import ReactSelect from "react-select";
-import { Controller } from "react-hook-form";
+import { Controller, useFormContext } from "react-hook-form";
 
 import { SelectInputProps } from "../types";
 
@@ -18,31 +18,29 @@ export function SelectInput({
     helpMessage,
     placeholder = "Selecione uma opção",
 }: SelectInputProps): JSX.Element {
-    // const {
-    //     control,
-    //     formState: { errors },
-    // } = useFormContext();
+    const { control } = useFormContext();
     return (
         <Container className={error ? "select input-container error" : "select input-container"}>
             {label && <label>{label}</label>}
-            {/* <Controller
+            <Controller
                 name={name}
                 control={control}
-                render={({ field }) => ( */}
-            <ReactSelect
-                // {...field}
-                isMulti={!!isMulti}
-                placeholder={placeholder}
-                className="basic-single"
-                classNamePrefix="select"
-                name={name}
-                options={options as any}
-                isSearchable={!!isSearchable}
-                noOptionsMessage={() => "Nenhuma opção correspondente"}
-                defaultValue={() => defaultValue}
+                render={({ field }) => (
+                    <ReactSelect
+                        {...field}
+                        isMulti={!!isMulti}
+                        placeholder={placeholder}
+                        className="basic-single"
+                        classNamePrefix="select"
+                        name={name}
+                        options={options as any}
+                        isSearchable={!!isSearchable}
+                        noOptionsMessage={() => "Nenhuma opção correspondente"}
+                        defaultValue={() => defaultValue}
+                    />
+                )}
             />
-            {/* )}
-            /> */}
+            {error && <ErrorMessage>{error}</ErrorMessage>}
             {helpMessage && !error && <HelpMessage>{helpMessage}</HelpMessage>}
         </Container>
     );

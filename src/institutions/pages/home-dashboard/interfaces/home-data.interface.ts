@@ -1,3 +1,5 @@
+import { EmployeePreview } from "../components/widgets/employees-widget/interfaces";
+
 interface StudentPreview {
     id: string;
     firstName: string;
@@ -15,14 +17,7 @@ interface ClassPreview {
     educators: string[];
 }
 
-interface EmployeePreview {
-    id: string;
-    firstName: string;
-    lastName: string;
-    role: string;
-    active: boolean;
-    photoUrl: string;
-}
+
 
 interface MessagePreview {
     id: string;

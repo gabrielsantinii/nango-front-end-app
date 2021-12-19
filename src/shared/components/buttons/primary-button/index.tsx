@@ -5,7 +5,7 @@ import { Container } from "./styles";
 
 const PrimaryButtonComponent: ForwardRefRenderFunction<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>> = (props, ref) => {
   return (
-    <Container className="main-button" ref={ref} {...props}>
+    <Container className="primary-button" ref={ref} {...props}>
       {props.children}
     </Container>
   );

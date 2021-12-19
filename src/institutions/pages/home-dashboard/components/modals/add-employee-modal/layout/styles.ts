@@ -4,11 +4,12 @@ import { XLg as Close } from "@styled-icons/bootstrap";
 
 export const Modal = styled(Sheet)`
     display: flex;
-
+    z-index: 44 !important;
     .react-modal-sheet-container {
         background: transparent !important;
         border-top-right-radius: 10px !important;
         border-top-left-radius: 10px !important;
+        box-shadow: none !important;
     }
 
     .react-modal-sheet-content {
@@ -16,36 +17,45 @@ export const Modal = styled(Sheet)`
         max-width: 768px;
         align-self: center;
         background: var(--primary-white);
-        padding: 24px 12px;
+
         border-top-right-radius: 10px !important;
         border-top-left-radius: 10px !important;
 
         > header {
             display: flex;
             align-items: center;
-
+            background: var(--terceary-gray);
+            height: 44px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
             > p {
                 font-size: 18px;
-                font-weight: 700;
+                font-weight: 500;
                 color: var(--primary-white);
-            }
-        }
-        > main {
-            margin-top: 30px;
-            display: flex;
-            flex-direction: column;
-
-            > div + div {
-                margin-top: 20px;
-            }
-            > .main-button {
-                margin-top: 20px;
+                > strong {
+                    font-weight: 700;
+                }
             }
         }
     }
 `;
 
-export const Form = styled.form``;
+export const Form = styled.form`
+    padding: 24px 12px;
+    > .input-container + .input-container,
+    .primary-button {
+        margin-top: 12px;
+    }
+
+    > .primary-button {
+        margin-left: auto;
+        max-width: 330px;
+    }
+`;
 
 export const CloseIcon = styled(Close)`
     margin-left: auto;

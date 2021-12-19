@@ -4,6 +4,7 @@ const notificationPreferences: ToastOptions = {
     style: {
         borderRadius: "10px",
         fontWeight: 500,
+        zIndex: 99999999999
     },
     duration: 1000,
 };

@@ -1,4 +1,3 @@
-import faker from "faker";
 import { useRef } from "react";
 import { PageContainer } from "../../../../shared/components";
 import { AddCircleButton } from "../../../../shared/components/buttons";
@@ -31,6 +30,7 @@ import {
     ProgressContent,
     MessagesContent,
 } from "./styles";
+import fakeLogo from '../assets/fake-logo.png'
 
 export function InstitutionsHomePageLayout(): JSX.Element {
     const addEmployeeModalRef = useRef<AddEmployeeModalHandles>(null);
@@ -40,7 +40,7 @@ export function InstitutionsHomePageLayout(): JSX.Element {
             <PageContainer>
                 <HomeDashboardContextProvider>
                     <Header>
-                        <InstitutionLogo src={faker.image.animals()} />
+                        <InstitutionLogo src={fakeLogo} alt="Logo" />
                         <InstitutionName>Colégio Verista</InstitutionName>
                     </Header>
                     <Main>
@@ -96,7 +96,6 @@ export function InstitutionsHomePageLayout(): JSX.Element {
                             <Section className="section">
                                 <SectionHeader>
                                     <SectionTitle>Mensagens</SectionTitle>
-                                    <AddCircleButton />
                                 </SectionHeader>
                                 <MessagesContent>
                                     <MessagesWidget />
