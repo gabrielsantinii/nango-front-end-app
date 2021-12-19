@@ -21,15 +21,12 @@ export class SignupController {
 
     private validateStep = async (step: number): Promise<boolean> => {
         const fieldsToValidate = this.fieldsByStep[step];
-        console.log("Fields to validate: ", fieldsToValidate);
         const isValid = await this.formMethods.trigger(fieldsToValidate as any, { shouldFocus: true });
-        console.log("Valid form? ", isValid);
         return isValid;
     };
 
     public advanceStep = async (currentStep: number, setNextStep: VoidFunction, navigation: UseNavigation) => {
         const values = this.formMethods.getValues();
-        console.log(`Values in step ${currentStep}: `, values);
         try {
             const formIsValid = await this.validateStep(currentStep);
             if (!formIsValid) return;
@@ -42,7 +39,5 @@ export class SignupController {
         }
     };
 
-    private signupAndCreateInstitution = async () => {
-        console.log("Creating user and institution with data: ", this.formMethods.getValues());
-    };
+    private signupAndCreateInstitution = async () => {};
 }

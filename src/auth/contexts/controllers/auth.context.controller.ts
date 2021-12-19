@@ -1,3 +1,4 @@
+import { delay } from "../../../shared/helpers";
 import { firebaseService } from "../../../shared/providers/firebase/services";
 import { notificationsService } from "../../../shared/services/notifications";
 import { StateModifier } from "../../../shared/types";
@@ -15,10 +16,15 @@ class AuthContextController {
         }
     }
 
-    public identifyUserAuth(setAuth: StateModifier<ReadAuthDto>) {
-        firebaseService.getAuth().onAuthStateChanged((user) => {
+    public identifyUserAuth(setAuth: StateModifier<ReadAuthDto>, setIsFetchingAuth: StateModifier<boolean, true>) {
+        firebaseService.getAuth().onAuthStateChanged(async (user) => {
             if (user) {
                 setAuth({ email: user.email as string, uid: user.uid });
+                await delay(1000)
+                setIsFetchingAuth(false);
+            } else {
+                await delay(1000)
+                setIsFetchingAuth(false);
             }
         });
     }

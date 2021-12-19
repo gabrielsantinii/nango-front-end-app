@@ -14,7 +14,6 @@ const addEmployeeService = new AddEmployeeService();
 
 export class AddEmployeeController {
     public add = async (data: AddEmployeeFormValues, closeModal: VoidFunction): Promise<void> => {
-        console.log("Received data onsubmit: ", data);
         const formattedData: AddEmployee = { ...data, profileType: data.profileType.value };
         const addEmployeePromise = addEmployeeService.add(formattedData);
         notificationsService.promise(addEmployeePromise, {

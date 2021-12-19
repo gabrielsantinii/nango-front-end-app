@@ -9,16 +9,15 @@ export const AuthContext = createContext({} as IAuthContext);
 export function AuthContextProvider({ children }: ContextProviderProps) {
     const [auth, setAuth] = useState<ReadAuthDto | null>(null);
     const [user, setUser] = useState<ReadUserDto | null>(null);
+    const [isFetchingAuth, setIsFetchingAuth] = useState(true);
 
-    useEffect(() => () => authContextController.identifyUserAuth(setAuth), []);
+    useEffect(() => authContextController.identifyUserAuth(setAuth, setIsFetchingAuth), []);
     useEffect(() => {
         if (!auth) return;
         authContextController.getUserByAuthId(auth?.uid, setUser);
     }, [auth]);
-    console.log("Auth", auth);
-    console.log("User", user);
 
     const signOut = useCallback(() => authContextController.signOut(setAuth, setUser), []);
 
-    return <AuthContext.Provider value={{ auth, user, signOut }}>{children}</AuthContext.Provider>;
+    return <AuthContext.Provider value={{ isFetchingAuth, auth, user, signOut }}>{children}</AuthContext.Provider>;
 }

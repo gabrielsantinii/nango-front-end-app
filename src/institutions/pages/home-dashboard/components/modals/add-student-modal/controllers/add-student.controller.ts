@@ -14,7 +14,6 @@ const addStudentService = new AddStudentService();
 
 export class AddStudentController {
     public add = async (data: AddStudentFormValues, closeModal: VoidFunction): Promise<void> => {
-        console.log("Received data onsubmit: ", data);
         const formattedData: AddStudent = { ...data };
         const addStudentPromise = addStudentService.add(formattedData);
         notificationsService.promise(addStudentPromise, {

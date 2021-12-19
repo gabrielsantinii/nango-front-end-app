@@ -27,8 +27,6 @@ export function SignupPageLayout(): JSX.Element {
     });
     const signupController = useMemo(() => new SignupController(formMethods), []);
     const categoriesWatcher = useWatch({ control: formMethods.control, name: "categories" });
-
-    console.log("Errors in categories: ", formMethods.formState.errors["categories"]);
     return (
         <AuthPageContainer>
             <Stepper currentStep={step} numberOfSteps={numberOfSteps} />
@@ -93,23 +91,27 @@ export function SignupPageLayout(): JSX.Element {
                                     label="CEP"
                                     name="address.postalCode"
                                     register={formMethods.register}
+                                    placeholder="Digite o CEP"
                                     error={formMethods.formState.errors["address"]?.["postalCode"]?.message}
                                 />
                                 <TextInput
                                     label="Rua"
                                     name="address.street"
                                     register={formMethods.register}
+                                    placeholder="Digite a rua"
                                     error={formMethods.formState.errors["address"]?.["street"]?.message}
                                 />
                                 <TextInput
                                     label="Bairro"
                                     name="address.neighborhood"
+                                    placeholder="Digite o bairro"
                                     register={formMethods.register}
                                     error={formMethods.formState.errors["address"]?.["neighborhood"]?.message}
                                 />
                                 <TextInput
                                     label="Cidade *"
                                     name="address.city"
+                                    placeholder="Digite a cidade"
                                     register={formMethods.register}
                                     error={formMethods.formState.errors["address"]?.["city"]?.message}
                                 />

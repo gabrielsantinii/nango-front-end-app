@@ -17,7 +17,6 @@ class FirebaseService {
 
     constructor() {
         this.firebaseApp = initializeApp(this.config);
-        console.log("Firebase initialized");
     }
 
     getAuth() {

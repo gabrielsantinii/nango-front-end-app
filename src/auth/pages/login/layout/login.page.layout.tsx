@@ -19,7 +19,7 @@ import { LoginController } from "../controllers";
 export function LoginPageLayout(): JSX.Element {
     const navigation = useNavigation();
     const formMethods = useForm<LoginFormValues>({ resolver: yupResolver(LoginSchema) });
-    const loginController = useMemo(() => new LoginController(formMethods), [])
+    const loginController = useMemo(() => new LoginController(formMethods, navigation), [])
     return (
         <AuthPageContainer>
             <ContentSection>
@@ -38,6 +38,7 @@ export function LoginPageLayout(): JSX.Element {
                         error={getFieldErrorMessage(formMethods, "email")}
                         label="E-mail"
                         name="email"
+                        placeholder="Digite seu e-mail"
                         register={formMethods.register}
                     />
                     <TextInput
@@ -45,6 +46,7 @@ export function LoginPageLayout(): JSX.Element {
                         label="Senha"
                         name="pass"
                         type="password"
+                        placeholder="Digite sua senha"
                         register={formMethods.register}
                     />
                     <ForgotPasswordLink>Esqueceu sua senha?</ForgotPasswordLink>
