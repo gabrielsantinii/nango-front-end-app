@@ -1,4 +1,4 @@
-import { FormProvider, useForm } from "react-hook-form";
+import { FormProvider, useForm, useWatch } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import { AuthPageContainer } from "../../../components/auth-page-container";
@@ -13,6 +13,8 @@ import { SignupSchema } from "../schemas";
 import { SignupFormValues } from "../interfaces";
 import { SignupForm } from "./styles";
 import { ContentSection, SectionTitle, SectionDescription } from "../../../shared/styles";
+import { useMemo } from "react";
+import { SignupController } from "../controllers";
 
 const numberOfSteps = 3;
 export function SignupPageLayout(): JSX.Element {
@@ -23,6 +25,10 @@ export function SignupPageLayout(): JSX.Element {
         resolver: yupResolver(SignupSchema),
         defaultValues: { address: { country: "Brasil" } },
     });
+    const signupController = useMemo(() => new SignupController(formMethods), []);
+    const categoriesWatcher = useWatch({ control: formMethods.control, name: "categories" });
+
+    console.log("Errors in categories: ", formMethods.formState.errors["categories"]);
     return (
         <AuthPageContainer>
             <Stepper currentStep={step} numberOfSteps={numberOfSteps} />
@@ -34,25 +40,48 @@ export function SignupPageLayout(): JSX.Element {
                         {step === 0 && (
                             <>
                                 <TextInput
-                                    label="Nome da instituição"
+                                    label="Nome da instituição *"
                                     name="name"
+                                    placeholder="Digite o nome da instituição"
                                     register={formMethods.register}
                                     error={formMethods.formState.errors["name"]?.message}
                                 />
                                 <SelectInput
-                                    label="Categorias"
+                                    label="Categorias *"
                                     name="categories"
                                     register={formMethods.register}
                                     error={
-                                        formMethods.formState.errors["categories"]?.find((c) => c.label?.message)?.label
-                                            ?.message
+                                        // @ts-expect-error
+                                        formMethods.formState.errors["categories"]?.message
                                     }
                                     isMulti
-                                    options={inputOptions.categories}
+                                    options={
+                                        categoriesWatcher?.length && categoriesWatcher.length >= 3
+                                            ? []
+                                            : inputOptions.categories
+                                    }
+                                    placeholder="Selecione até 3 opções"
+                                    noOptionsMessage="Você só pode selecionar até 3 opções"
+                                />
+
+                                <SelectInput
+                                    label="Número de funcionários *"
+                                    name="rangeOfEmployees"
+                                    register={formMethods.register}
+                                    error={formMethods.formState.errors["rangeOfEmployees"]?.label?.message}
+                                    options={inputOptions.rangeOfEmployees}
+                                />
+                                <SelectInput
+                                    label="Número de alunos *"
+                                    name="rangeOfStudents"
+                                    register={formMethods.register}
+                                    error={formMethods.formState.errors["rangeOfStudents"]?.label?.message}
+                                    options={inputOptions.rangeOfStudents}
                                 />
                                 <TextInput
                                     label="Site"
                                     name="website"
+                                    placeholder="Digite o site da instituição"
                                     register={formMethods.register}
                                     error={formMethods.formState.errors["website"]?.message}
                                 />
@@ -79,13 +108,13 @@ export function SignupPageLayout(): JSX.Element {
                                     error={formMethods.formState.errors["address"]?.["neighborhood"]?.message}
                                 />
                                 <TextInput
-                                    label="Cidade"
+                                    label="Cidade *"
                                     name="address.city"
                                     register={formMethods.register}
                                     error={formMethods.formState.errors["address"]?.["city"]?.message}
                                 />
                                 <TextInput
-                                    label="state"
+                                    label="state *"
                                     name="address.state"
                                     register={formMethods.register}
                                     error={formMethods.formState.errors["address"]?.["state"]?.message}
@@ -94,45 +123,52 @@ export function SignupPageLayout(): JSX.Element {
                         )}
                         {step === 2 && (
                             <>
-                                <SelectInput
-                                    label="Número de funcionários"
-                                    name="rangeOfEmployees"
+                                <TextInput
+                                    label="Nome *"
+                                    placeholder="Digite seu nome"
+                                    name="contactPerson.firstName"
                                     register={formMethods.register}
-                                    error={formMethods.formState.errors["rangeOfEmployees"]?.label?.message}
-                                    options={inputOptions.rangeOfEmployees}
-                                />
-                                <SelectInput
-                                    label="Número de alunos"
-                                    name="rangeOfStudents"
-                                    register={formMethods.register}
-                                    error={formMethods.formState.errors["rangeOfStudents"]?.label?.message}
-                                    options={inputOptions.rangeOfStudents}
+                                    error={formMethods.formState.errors["contactPerson"]?.["firstName"]?.message}
                                 />
                                 <TextInput
-                                    label="Nome para contato"
-                                    name="contactPerson.name"
+                                    label="Sobrenome *"
+                                    placeholder="Digite seu sobrenome"
+                                    name="contactPerson.lastName"
                                     register={formMethods.register}
-                                    error={formMethods.formState.errors["contactPerson"]?.["name"]?.message}
+                                    error={formMethods.formState.errors["contactPerson"]?.["lastName"]?.message}
                                 />
                                 <TextInput
-                                    label="E-mail para contato"
+                                    label="Telefone *"
+                                    placeholder="Digite seu telefone"
+                                    name="contactPerson.phone"
+                                    register={formMethods.register}
+                                    error={formMethods.formState.errors["contactPerson"]?.["phone"]?.message}
+                                />
+                                <TextInput
+                                    label="E-mail *"
                                     name="contactPerson.email"
+                                    placeholder="Digite seu e-mail"
                                     register={formMethods.register}
                                     error={formMethods.formState.errors["contactPerson"]?.["email"]?.message}
                                     helpMessage="Este e-mail será registrado como administrador da instituição."
                                 />
+
                                 <TextInput
-                                    label="Telefone para contato"
-                                    name="contactPerson.phone"
+                                    label="Senha de acesso *"
+                                    placeholder="Crie sua senha"
+                                    name="contactPerson.pass"
                                     register={formMethods.register}
-                                    error={formMethods.formState.errors["contactPerson"]?.["phone"]?.message}
+                                    type="password"
+                                    error={formMethods.formState.errors["contactPerson"]?.["pass"]?.message}
                                 />
                             </>
                         )}
 
                         <PrimaryButton
                             className="next-button"
-                            onClick={() => (step === numberOfSteps - 1 ? navigation.goToHomePage() : nextStep())}
+                            onClick={() => {
+                                signupController.advanceStep(step, nextStep, navigation);
+                            }}
                             type="button"
                         >
                             {step === numberOfSteps - 1 ? "Registrar" : "Seguir"}

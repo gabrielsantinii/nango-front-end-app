@@ -15,8 +15,10 @@ export interface SignupFormValues {
     rangeOfEmployees: SelectInputOption;
     rangeOfStudents: SelectInputOption;
     contactPerson: {
-        name: string;
+        firstName: string;
+        lastName: string;
         email: string;
         phone: string;
+        pass: string;
     };
 }

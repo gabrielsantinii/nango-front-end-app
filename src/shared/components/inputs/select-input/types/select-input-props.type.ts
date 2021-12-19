@@ -6,4 +6,5 @@ export type SelectInputProps = InputProps & {
     options: SelectInputOption[];
     defaultValue?: SelectInputOption;
     isMulti?: boolean;
+    noOptionsMessage?: string;
 };

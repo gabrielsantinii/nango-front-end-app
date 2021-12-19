@@ -17,6 +17,7 @@ export function SelectInput({
     isMulti,
     helpMessage,
     placeholder = "Selecione uma opção",
+    noOptionsMessage = "Nenhuma opção correspondente",
 }: SelectInputProps): JSX.Element {
     const { control } = useFormContext();
     return (
@@ -35,7 +36,7 @@ export function SelectInput({
                         name={name}
                         options={options as any}
                         isSearchable={!!isSearchable}
-                        noOptionsMessage={() => "Nenhuma opção correspondente"}
+                        noOptionsMessage={() => noOptionsMessage}
                         defaultValue={() => defaultValue}
                     />
                 )}

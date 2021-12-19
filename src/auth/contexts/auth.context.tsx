@@ -8,13 +8,15 @@ export const AuthContext = createContext({} as IAuthContext);
 
 export function AuthContextProvider({ children }: ContextProviderProps) {
     const [auth, setAuth] = useState<ReadAuthDto | null>(null);
-    const [user, setUser] = useState<ReadUserDto | null>(null);;
+    const [user, setUser] = useState<ReadUserDto | null>(null);
 
     useEffect(() => () => authContextController.identifyUserAuth(setAuth), []);
     useEffect(() => {
         if (!auth) return;
         authContextController.getUserByAuthId(auth?.uid, setUser);
     }, [auth]);
+    console.log("Auth", auth);
+    console.log("User", user);
 
     const signOut = useCallback(() => authContextController.signOut(setAuth, setUser), []);
 
