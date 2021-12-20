@@ -23,5 +23,8 @@ class NotificationsService {
         const formattedMessages = { ...defaultPromiseProps, ...messages };
         toast.promise(promise, formattedMessages);
     }
+    resourceNotAvailable() {
+        toast.error("Este recurso ainda não está disponível.");
+    }
 }
 export const notificationsService = new NotificationsService();

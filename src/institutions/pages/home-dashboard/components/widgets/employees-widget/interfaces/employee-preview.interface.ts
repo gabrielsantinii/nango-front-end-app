@@ -5,4 +5,5 @@ export interface EmployeePreview {
     role: string;
     active: boolean;
     photoUrl: string;
+    profileType: string;
 }

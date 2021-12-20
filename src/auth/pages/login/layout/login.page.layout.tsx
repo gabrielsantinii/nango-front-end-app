@@ -15,6 +15,7 @@ import { ContentSection, SectionTitle, SectionDescription } from "../../../share
 import { LoginForm, ForgotPasswordLink } from "./styles";
 import { getFieldErrorMessage } from "../../../../shared/helpers";
 import { LoginController } from "../controllers";
+import { notificationsService } from "../../../../shared/services/notifications";
 
 export function LoginPageLayout(): JSX.Element {
     const navigation = useNavigation();
@@ -49,7 +50,7 @@ export function LoginPageLayout(): JSX.Element {
                         placeholder="Digite sua senha"
                         register={formMethods.register}
                     />
-                    <ForgotPasswordLink>Esqueceu sua senha?</ForgotPasswordLink>
+                    <ForgotPasswordLink onClick={notificationsService.resourceNotAvailable} >Esqueceu sua senha?</ForgotPasswordLink>
                     <PrimaryButton className="login-button" type="submit">
                         Logar
                     </PrimaryButton>

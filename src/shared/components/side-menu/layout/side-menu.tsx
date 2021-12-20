@@ -1,5 +1,9 @@
 import faker from "faker";
 
+import { notificationsService } from "../../../services/notifications";
+import { Avatar } from "../..";
+import { useAuthContext } from "../../../../auth/hooks/contexts";
+
 import {
     SideMenuContainer,
     SideMenuFooter,
@@ -10,20 +14,18 @@ import {
     SignoutIcon,
 } from "./styles";
 import logo from "../../../assets/images/logo.png";
-import { Avatar } from "../..";
-import { useNavigation } from "../../../hooks";
 
 export function SideMenu(): JSX.Element {
-    const navigation = useNavigation();
+    const { signOut } = useAuthContext();
     return (
         <SideMenuContainer>
             <Logo src={logo} alt="NANGO" />
             <DashboardIcon className="active" />
-            <ClassesIcon />
-            <ActivitiesIcon />
+            <ClassesIcon onClick={notificationsService.resourceNotAvailable} />
+            <ActivitiesIcon onClick={notificationsService.resourceNotAvailable}/>
             <SideMenuFooter>
                 <Avatar src={faker.image.animals()} />
-                <SignoutIcon onClick={navigation.goToLoginPage} />
+                <SignoutIcon onClick={signOut} />
             </SideMenuFooter>
         </SideMenuContainer>
     );

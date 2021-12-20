@@ -1,8 +1,13 @@
 import { UseFormReturn } from "react-hook-form";
+import { delay } from "../../../../shared/helpers";
 import { UseNavigation } from "../../../../shared/hooks/use-navigation/interfaces";
+import { firebaseService } from "../../../../shared/providers/firebase/services";
 import { notificationsService } from "../../../../shared/services/notifications";
-import { SignupFormValues } from "../interfaces";
+import { LoginService } from "../../login/services/login.service";
+import { Signup, SignupFormValues } from "../interfaces";
+import { SignupService } from "../services";
 
+const signupService = new SignupService();
 export class SignupController {
     constructor(private readonly formMethods: UseFormReturn<SignupFormValues>) {}
 
@@ -27,11 +32,20 @@ export class SignupController {
 
     public advanceStep = async (currentStep: number, setNextStep: VoidFunction, navigation: UseNavigation) => {
         const values = this.formMethods.getValues();
+        const formIsValid = await this.validateStep(currentStep);
+        if (!formIsValid) return;
         try {
-            const formIsValid = await this.validateStep(currentStep);
-            if (!formIsValid) return;
             if (currentStep === 2) {
-                await this.signupAndCreateInstitution();
+                const signupAndLogin = async () => {
+                    await this.signupAndCreateInstitution(values);
+                    navigation.goToHomePage();
+                };
+
+                notificationsService.promise(signupAndLogin(), {
+                    error: "Não foi possível cadastrar a instituição.",
+                    loading: "Cadastrando instituição...",
+                    success: "Instituição cadastrada com sucesso!",
+                });
             }
             setNextStep();
         } catch (err: any) {
@@ -39,5 +53,24 @@ export class SignupController {
         }
     };
 
-    private signupAndCreateInstitution = async () => {};
+    private signupAndCreateInstitution = async (values: SignupFormValues) => {
+        const formattedValues = this.formatSelectInputValuesToString(values);
+        await signupService.createInstitutionAndUser(formattedValues);
+        await delay(1000);
+        await this.loginCreatedUser(formattedValues.contactPerson.email, formattedValues.contactPerson.pass);
+    };
+
+    private formatSelectInputValuesToString = (values: SignupFormValues): Signup => {
+        return {
+            ...values,
+            categories: values.categories.map((c) => c.value),
+            rangeOfEmployees: values.rangeOfEmployees.value,
+            rangeOfStudents: values.rangeOfStudents.value,
+        };
+    };
+
+    private loginCreatedUser = async (email: string, pass: string) => {
+        const loginService = new LoginService(firebaseService.getAuth());
+        await loginService.login(email, pass);
+    };
 }

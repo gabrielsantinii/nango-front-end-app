@@ -17,8 +17,6 @@ interface ClassPreview {
     educators: string[];
 }
 
-
-
 interface MessagePreview {
     id: string;
     messageContent: string;
@@ -41,4 +39,7 @@ export interface HomeData {
     employees: EmployeePreview[];
     messages: MessagePreview[];
     progress: ProgressPreview;
+    institution: {
+        name: string;
+    };
 }

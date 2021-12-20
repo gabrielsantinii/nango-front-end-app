@@ -1,1 +1,1 @@
-export { HomeDashboardContext, HomeDashboardContextProvider } from './home-dashboard.context'
+export * from './home-data.context'

@@ -66,6 +66,7 @@ const AddStudentModalComponent: ForwardRefRenderFunction<AddStudentModalHandles,
                                     placeholder="Digite o telefone"
                                     label="Telefone"
                                     name="phone"
+                                    type="number"
                                     register={formMethods.register}
                                 />
                                 <PrimaryButton onClick={() => {}}>Adicionar</PrimaryButton>

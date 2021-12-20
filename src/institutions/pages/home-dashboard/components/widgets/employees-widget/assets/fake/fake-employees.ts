@@ -4,11 +4,12 @@ import fakePhoto2 from "../images/fake-employee-2-photo.png";
 export const fakeEmployees: EmployeePreview[] = [
     {
         firstName: "Mario",
-        active: false,
+        active: true,
         lastName: "Fernandes",
         photoUrl: fakePhoto1,
         id: "mario-fernandes",
         role: "Professor",
+        profileType: "educator"
     },
     {
         firstName: "Katana",
@@ -17,5 +18,6 @@ export const fakeEmployees: EmployeePreview[] = [
         photoUrl: fakePhoto2,
         id: "Katana-Oshimira",
         role: "Professor",
+        profileType: "educator"
     },
 ];

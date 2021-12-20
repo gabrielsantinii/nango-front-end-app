@@ -116,8 +116,9 @@ export function SignupPageLayout(): JSX.Element {
                                     error={formMethods.formState.errors["address"]?.["city"]?.message}
                                 />
                                 <TextInput
-                                    label="state *"
+                                    label="Estado *"
                                     name="address.state"
+                                    placeholder="Digite o estado"
                                     register={formMethods.register}
                                     error={formMethods.formState.errors["address"]?.["state"]?.message}
                                 />

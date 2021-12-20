@@ -3,6 +3,7 @@ import { AuthContextProvider } from "../auth/contexts/auth.context";
 import { useAuthContext } from "../auth/hooks/contexts";
 import { LoginPageLayout, SignupPageLayout } from "../auth/pages";
 import { InstitutionsHomePageLayout } from "../institutions/pages";
+import { HomeDashboardContextProvider } from "../institutions/pages/home-dashboard/contexts";
 import { useWindowSize } from "../shared/hooks";
 import { MobileNotReadyLayout } from "../shared/pages/mobile-not-ready";
 import { SplashScreen } from "../shared/pages/splash-screen";
@@ -51,9 +52,11 @@ export function Routes(): JSX.Element {
                         caseSensitive={false}
                         element={
                             <ProtectAuthRoute>
-                                <AnimRoute>
-                                    <InstitutionsHomePageLayout />
-                                </AnimRoute>
+                                <HomeDashboardContextProvider>
+                                    <AnimRoute>
+                                        <InstitutionsHomePageLayout />
+                                    </AnimRoute>
+                                </HomeDashboardContextProvider>
                             </ProtectAuthRoute>
                         }
                     />

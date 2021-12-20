@@ -13,15 +13,11 @@ export const EmployeeCardContainer = styled.div<EmployeeCardContainerProps>`
     min-height: 100%;
     align-self: stretch;
 
-    /* background-image: url(${(props) => props.backgroundImage});
-    /* background-image: linear-gradient(
-        359.35deg,
-        rgba(0, 0, 0, 1) 10%,
-        rgba(0, 0, 0, 0) 50%,
-        ${(props) => `url(${props.backgroundImage})`}
-    ); */
     background-image: linear-gradient(180deg, rgba(0, 0, 0, 1) 2%, rgba(0, 0, 0, 0) 79%),
-        ${(props) => `url(${props.backgroundImage})`};
+        ${(props) => (props.backgroundImage ? `url(${props.backgroundImage})` : `var(--quinquennial-gray)`)};
+    ${(props) =>
+        !props.backgroundImage &&
+        `background-image: linear-gradient(180deg, rgba(0, 0, 0, 1) 2%, rgba(0, 0, 0, 0.1) 79%);`}
     background-repeat: no-repeat;
     background-size: cover;
 

@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { PageContainer } from "../../../../shared/components";
 import { AddCircleButton } from "../../../../shared/components/buttons";
 import {
@@ -33,10 +33,14 @@ import {
     MessagesContent,
 } from "./styles";
 import fakeLogo from "../assets/fake-logo.png";
+import { notificationsService } from "../../../../shared/services/notifications";
+import { useHomeDataContext } from "../hooks";
 
 export function InstitutionsHomePageLayout(): JSX.Element {
     const addEmployeeModalRef = useRef<AddEmployeeModalHandles>(null);
     const addStudentModalRef = useRef<AddStudentModalHandles>(null);
+    const { institution } = useHomeDataContext();
+    console.log("Institution> ", institution)
     return (
         <>
             <AddEmployeeModal ref={addEmployeeModalRef} />
@@ -45,14 +49,14 @@ export function InstitutionsHomePageLayout(): JSX.Element {
                 <HomeDashboardContextProvider>
                     <Header>
                         <InstitutionLogo src={fakeLogo} alt="Logo" />
-                        <InstitutionName>Colégio Verista</InstitutionName>
+                        <InstitutionName>{institution?.name || "..."}</InstitutionName>
                     </Header>
                     <Main>
                         <Column className="column">
                             <Section className="section">
                                 <SectionHeader>
                                     <SectionTitle>Classes</SectionTitle>
-                                    <AddCircleButton />
+                                    <AddCircleButton onClick={notificationsService.resourceNotAvailable} />
                                 </SectionHeader>
                                 <ClassesContent>
                                     <ClassesWidget />
@@ -100,6 +104,7 @@ export function InstitutionsHomePageLayout(): JSX.Element {
                             <Section className="section">
                                 <SectionHeader>
                                     <SectionTitle>Mensagens</SectionTitle>
+                                    <AddCircleButton onClick={notificationsService.resourceNotAvailable} />
                                 </SectionHeader>
                                 <MessagesContent>
                                     <MessagesWidget />

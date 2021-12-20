@@ -2,13 +2,12 @@ import { SelectInputOption } from "../../../../shared/components/inputs/select-i
 
 export const inputOptions: Record<string, SelectInputOption[]> = {
     categories: [
-        { value: "educação infantil", label: "Educação infantil" },
-        { value: "fundamental", label: "Fundamental" },
-        { value: "médio", label: "Médio" },
-        { value: "superior (graduação)", label: "Superior (graduação)" },
-        { value: "pós-graduação", label: "Pós-graduação" },
-        { value: "mestrado", label: "Mestrado" },
-        { value: "doutorado", label: "Doutorado" },
+        { value: "elementary-school", label: "Ensino Fundamental" },
+        { value: "high-school", label: "Ensino Médio" },
+        { value: "college", label: "Superior (graduação)" },
+        { value: "postgraduate", label: "Pós-graduação" },
+        { value: "masters-degree", label: "Mestrado" },
+        { value: "doctorate", label: "Doutorado" },
     ],
     rangeOfEmployees: [
         { value: "1 - 10", label: "1 - 10" },

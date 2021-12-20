@@ -61,6 +61,7 @@ const AddEmployeeModalComponent: ForwardRefRenderFunction<AddEmployeeModalHandle
                                     placeholder="Digite o telefone"
                                     label="Telefone"
                                     name="phone"
+                                    type="number"
                                     register={formMethods.register}
                                 />
                                 <SelectInput
